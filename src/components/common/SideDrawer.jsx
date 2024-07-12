@@ -1,9 +1,11 @@
 import { useState } from 'react'
 
-import { SwipeableDrawer, IconButton, List, ListItem, ListItemText } from '@mui/material';
+import { Box, SwipeableDrawer, IconButton, List, ListItem, ListItemText } from '@mui/material';
 
 import { Link } from 'react-router-dom';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+
+import IconButtonComponent from './IconButtonComponent';
 
 const SideDrawer = ({ anchor, items, width }) => {
 
@@ -22,6 +24,21 @@ const SideDrawer = ({ anchor, items, width }) => {
             onClick={handleOnMenuClick(false)}
             onKeyDown={handleOnMenuClick(false)}
         >
+
+            <Box
+                sx={{
+                    padding: '10px',
+                    display: 'flex',
+
+                }}
+            >
+                <IconButtonComponent
+                    onClick={handleOnMenuClick(false)}
+                    icon={<X />}
+                />
+            </Box>
+
+
             <List>
                 {items.map(({ label, path }, index) => (
                     <ListItem button component={Link} to={path} key={index}>
@@ -29,6 +46,7 @@ const SideDrawer = ({ anchor, items, width }) => {
                     </ListItem>
                 ))}
             </List>
+
         </div>
     );
 

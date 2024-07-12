@@ -46,21 +46,51 @@ const AppbarComponent = () => {
                         />
                     </Box>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map(({ label, path }, index) => (
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            display: { xs: 'none', md: 'flex' },
+                            justifyContent: { xs: 'none', md: 'space-between' },
+                            alignItems: 'center'
+                        }}>
+
+                        <Box
+                            sx={{
+                                display: { xs: 'none', md: 'flex' },
+                                flexDirection: 'row',
+                            }}
+                        >
+                            {pages.map(({ label, path }, index) => (
+                                <Button
+                                    key={index}
+                                    LinkComponent={RouterLink}
+                                    to={path}
+                                    sx={{
+                                        my: 2, color: 'white',
+                                        display: 'block',
+                                        textTransform: 'capitalize'
+                                    }}
+                                >
+                                    {label}
+                                </Button>
+                            ))}
+                        </Box>
+
+                        <div>
                             <Button
-                                key={index}
                                 LinkComponent={RouterLink}
-                                to={path}
+                                to={'/contact-us'}
+                                variant="contained"
                                 sx={{
                                     my: 2, color: 'white',
                                     display: 'block',
                                     textTransform: 'capitalize'
                                 }}
                             >
-                                {label}
+                                Contact
                             </Button>
-                        ))}
+                        </div>
+
                     </Box>
 
                 </Toolbar>
