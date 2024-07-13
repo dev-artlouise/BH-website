@@ -11,6 +11,7 @@ const AppbarComponent = () => {
         { label: "About", path: "about-us" },
         { label: "Services", path: "services" },
         { label: "Fortpolio", path: "fortpolio" },
+        { label: "Products", path: "products" },
     ];
 
     return (
@@ -81,13 +82,14 @@ const AppbarComponent = () => {
                                 LinkComponent={RouterLink}
                                 to={'/contact-us'}
                                 variant="contained"
+                                size={'large'}
                                 sx={{
                                     my: 2, color: 'white',
                                     display: 'block',
                                     textTransform: 'capitalize'
                                 }}
                             >
-                                Contact
+                                Contact Us
                             </Button>
                         </div>
 

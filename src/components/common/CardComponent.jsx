@@ -28,7 +28,11 @@ const CardComponent = ({ image, title, cardContent, cardActions }) => {
                 >
                     {cardContent}
                 </CardContent>
-                <CardActions>
+                <CardActions
+                    sx={{
+                        marginBottom: '12px'
+                    }}
+                >
                     {cardActions}
                 </CardActions>
             </Card>

@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import { } from 'lucide-react'
 
-const ButtonComponent = ({ label, variant, size, color, onClick }) => {
+const ButtonComponent = ({ label, variant, size, color, onClick, fullWidth }) => {
     return (
         <>
             <Button
@@ -9,15 +9,13 @@ const ButtonComponent = ({ label, variant, size, color, onClick }) => {
                 onClick={onClick}
                 variant={variant}
                 size={size}
+                fullWidth={fullWidth}
                 sx={{
                     textTransform: 'capitalize'
                 }}
             >
                 {label}
             </Button>
-            {/* <button className='flex items-center py-2 px-3 border rounded-full'>
-                {label}
-            </button> */}
         </>
     )
 }

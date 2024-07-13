@@ -6,6 +6,7 @@ import About from '../pages/About';
 import Services from '../pages/Services';
 import Fortpolio from '../pages/Fortpolio';
 import Contact from "../pages/Contact";
+import Products from "../pages/Products";
 import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
             {
                 path: '/fortpolio',
                 element: <Fortpolio />,
+            },
+
+            {
+                path: '/products',
+                element: <Products />,
             },
 
             {
