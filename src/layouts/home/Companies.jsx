@@ -1,5 +1,13 @@
-import { Box } from '@mui/material'
-import React from 'react'
+import { Box, Typography } from '@mui/material'
+
+const companies = [
+    { id: 1, name: 'airbnb', img: 'https://assets.maccarianagency.com/svg/logos/airbnb-original.svg' },
+    { id: 2, name: 'amazon', img: 'https://assets.maccarianagency.com/svg/logos/amazon-original.svg' },
+    { id: 3, name: 'fitbit', img: 'https://assets.maccarianagency.com/svg/logos/fitbit-original.svg' },
+    { id: 4, name: 'netflix', img: 'https://assets.maccarianagency.com/svg/logos/netflix-original.svg' },
+    { id: 5, name: 'google', img: 'https://assets.maccarianagency.com/svg/logos/google-original.svg' },
+    { id: 6, name: 'paypal', img: 'https://assets.maccarianagency.com/svg/logos/paypal-original.svg' },
+]
 
 const Companies = () => {
     return (
@@ -21,24 +29,44 @@ const Companies = () => {
                         marginBottom: '32px'
                     }}
                 >
-                    Trusted By Companies
+                    <Typography
+                        variant='body1'
+                        fontWeight='500'
+                        textTransform='uppercase'
+                    >
+                        Trusted By Companies
+                    </Typography>
+
                 </Box>
+
                 <Box
                     sx={{
                         display: 'flex',
-                        flex: 'wrap',
+                        flexWrap: 'wrap',
                         justifyContent: 'center'
                     }}
                 >
-                    <Box
-                        sx={{
-                            maxWidth: '90px',
-                            marginTop: '16px',
-                            marginRight: '32px',
-                        }}
-                    >
-                        <img src="https://assets.maccarianagency.com/svg/logos/airbnb-original.svg" alt="" />
-                    </Box>
+                    {companies.map(({ id, img }) => (
+                        <Box
+                            sx={{
+                                maxWidth: '90px',
+                                marginTop: '16px',
+                                marginRight: '32px',
+                            }}
+                        >
+                            <Box
+                                key={id}
+                                component={'img'}
+                                src={img}
+                                sx={{
+                                    height: '100%',
+                                    width: '100%',
+                                    filter: 'none'
+                                }}
+                            >
+                            </Box>
+                        </Box>
+                    ))}
                 </Box>
             </Box>
 

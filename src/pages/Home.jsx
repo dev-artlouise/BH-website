@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import Companies from "../layouts/home/Companies";
+import Services from "../layouts/home/Services";
 import Projects from "../components/Projects";
 import WorkFlow from '../layouts/home/Workflow'
 import Testimonials from '../layouts/home/Testimonials'
@@ -13,6 +14,7 @@ const Home = () => {
         <>
             <Hero />
             <Companies />
+            <Services />
             <WorkFlow />
             <Testimonials />
             {/* <Projects /> */}
