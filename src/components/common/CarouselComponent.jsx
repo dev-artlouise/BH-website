@@ -4,7 +4,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const CarouselComponent = ({ sliderContent }) => {
+const CarouselComponent = ({ sliderContent, slidesToShow, slidesToScroll }) => {
 
     const sliderRef = useRef(null)
 
@@ -12,8 +12,8 @@ const CarouselComponent = ({ sliderContent }) => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4
+        slidesToShow: slidesToShow,
+        slidesToScroll: slidesToScroll
     };
 
     useEffect(() => {

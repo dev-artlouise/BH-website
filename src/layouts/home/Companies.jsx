@@ -48,6 +48,8 @@ const Companies = () => {
                 >
                     {companies.map(({ id, img }) => (
                         <Box
+
+                            key={id}
                             sx={{
                                 maxWidth: '90px',
                                 marginTop: '16px',

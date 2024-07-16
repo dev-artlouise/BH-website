@@ -8,7 +8,6 @@ import { useState } from 'react'
 
 function Sidebar() {
 
-
     const [open, setOpen] = useState(false)
 
     const variants = {

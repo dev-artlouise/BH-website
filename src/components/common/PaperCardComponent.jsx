@@ -3,12 +3,13 @@ import React from 'react'
 import { Paper, CardContent, Typography, Avatar } from '@mui/material'
 import { Box } from 'lucide-react'
 
-const PaperCardComponent = ({ title, description }) => {
+const PaperCardComponent = ({ title, description, alignItems, textAlign, avatarWidth, avatarHeight }) => {
     return (
         <>
             <Paper
                 sx={{
-                    borderRadius: '20px'
+                    borderRadius: '20px',
+                    paddingBottom: '24px'
                 }}
             >
                 <CardContent
@@ -17,17 +18,31 @@ const PaperCardComponent = ({ title, description }) => {
                         paddingBottom: '48px',
                         display: 'flex',
                         flexDirection: 'column',
-                        alignItems: 'center'
+                        alignItems: alignItems
                     }}
                 >
 
-                    <Avatar variant="rounded">
-                        <Box />
+                    <Avatar
+                        variant="rounded"
+                        sx={{
+                            position: 'relative',
+                            display: 'flex',
+                            marginBottom: '24px',
+                            alignItems: 'center',
+                            height: '84px',
+                            width: '84px',
+                            borderRadius: '20px'
+                        }}
+                    >
+                        <Box
+                            width={avatarWidth}
+                            height={avatarHeight}
+                        />
                     </Avatar>
 
                     <Typography
                         variant='h6'
-                        textAlign='center'
+                        textAlign={textAlign}
                         fontWeight='500'
                         gutterBottom
                     >
@@ -37,7 +52,7 @@ const PaperCardComponent = ({ title, description }) => {
                     <Typography
                         variant='body1'
                         component='p'
-                        textAlign='center'
+                        textAlign={textAlign}
                     >
                         {description}
                     </Typography>

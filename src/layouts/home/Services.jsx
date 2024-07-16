@@ -70,15 +70,21 @@ const Services = () => {
 
                     <Box>
                         <CarouselComponent
+                            slidesToShow={4}
+                            slidesToScroll={4}
                             sliderContent={
                                 services.map(({ id, name, description }) => (
                                     <Box
+                                        key={id}
                                         sx={{
                                             padding: '16px'
                                         }}
                                     >
                                         <PaperCardComponent
-                                            key={id}
+                                            avatarHeight='48'
+                                            avatarWidth='48'
+                                            alignItems='center'
+                                            textAlign='center'
                                             title={name}
                                             description={description}
                                         />
