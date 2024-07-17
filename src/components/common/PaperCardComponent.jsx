@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Paper, CardContent, Typography, Avatar } from '@mui/material'
 import { Box } from 'lucide-react'
 
