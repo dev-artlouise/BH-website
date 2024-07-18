@@ -29,7 +29,7 @@ const Process = () => {
     return (
         <Box
             sx={{
-                background: '#f3f6ff',
+                // background: '#f3f6ff',
                 position: 'relative'
             }}
         >

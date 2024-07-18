@@ -1,8 +1,46 @@
-import { Container, Box, Typography } from "@mui/material"
+import { Container, Box, Typography, Grid } from "@mui/material"
 
 import ButtonComponent from "../../components/common/ButtonComponent"
 
 const WorkWithUs = () => {
+
+    const services = [
+        {
+            id: 1,
+            description: ' Premium Products: We offer a wide range of high - quality computer products from trusted brands, ensuring durability and reliability.'
+        },
+
+        {
+            id: 2,
+            description: ' Extended Warranties: Enjoy peace of mind with our extended warranties and comprehensive service plans.'
+        },
+
+        {
+            id: 3,
+            description: 'Best Prices: We offer competitive pricing on all our computer products without compromising on quality.'
+        },
+
+        {
+            id: 4,
+            description: 'After - Sales Support: Our dedicated after - sales support team is available to assist you with any issues or questions you may have.'
+        },
+
+        {
+            id: 5,
+            description: 'Latest Technology: Stay ahead with the latest and most innovative technology available on the market.'
+        },
+
+        {
+            id: 6,
+            description: 'Custom Solutions: We provide custom - built computers and configurations to suit your specific needs.'
+        },
+
+        {
+            id: 7,
+            description: 'Comprehensive Support: From setup to troubleshooting, we offer comprehensive support to ensure you get the most out of your products.'
+        },
+    ]
+
     return (
         <Container
             fixed
@@ -18,36 +56,6 @@ const WorkWithUs = () => {
                             paddingBottom: '32px'
                         }}
                     >
-                        <Typography
-                            variant='body1'
-                            component='p'
-                            textAlign='center'
-                            textTransform='uppercase'
-                            fontWeight='500'
-                            gutterBottom
-                        >
-                            WHY WORK WITH US
-                        </Typography>
-
-                        <Typography
-                            variant="h3"
-                            textAlign='center'
-                            fontWeight='700'
-                            gutterBottom
-                        >
-                            We guide you through each step of the process.
-                        </Typography>
-
-                        <Typography
-                            variant="h6"
-                            component='p'
-                            gutterBottom
-                            fontWeight='500'
-                            textAlign='center'
-                        >
-                            As specialists in design and development, we assist you through the entire process, from your initial website concept to design, development, launch, and scaling!
-                        </Typography>
-
                         <Box
                             sx={{
                                 marginTop: '24px',

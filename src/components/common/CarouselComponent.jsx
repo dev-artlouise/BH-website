@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+import { Box } from "@mui/material";
+
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,7 +15,8 @@ const CarouselComponent = ({ sliderContent, slidesToShow, slidesToScroll }) => {
         infinite: true,
         speed: 500,
         slidesToShow: slidesToShow,
-        slidesToScroll: slidesToScroll
+        slidesToScroll: slidesToScroll,
+        arrows: false,
     };
 
     useEffect(() => {
