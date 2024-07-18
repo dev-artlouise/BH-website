@@ -1,12 +1,14 @@
 // import './hero.scss'
 
-import { Typography, Box, Button } from '@mui/material'
-
+import { Typography, Box, Grid, Container, useTheme, useMediaQuery } from '@mui/material'
 import ButtonComponent from './common/ButtonComponent'
-
 import { animate, motion } from 'framer-motion'
+import HeroImg from '../assets/hero-img.png'
 
 const Hero = () => {
+
+    const theme = useTheme();
+    const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     const textVariants = {
         initial: {
@@ -38,104 +40,154 @@ const Hero = () => {
     }
 
     return (
-        <div className=''>
-
-            <motion.div
-                className="flex flex-col items-center mt-6 lg:mt"
-                variants={textVariants}
-                initial="initial"
-                animate="animate"
-            >
-                <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    variants={textVariants}
+        <Box
+            sx={{
+                background: 'linear-gradient(rgb(243, 246, 255) 0%, rgb(255, 255, 255) 100%);',
+                position: 'relative'
+            }}
+        >
+            <Container>
+                <Box
+                    sx={{
+                        maxWidth: '1236px',
+                        paddingTop: '64px',
+                        paddingBottom: '64px',
+                        width: '100%',
+                        margin: '0px auto',
+                        paddingLeft: '16px',
+                        paddingRight: '16px',
+                        position: 'relative',
+                    }}
                 >
-                    <Typography
-                        variant="h1"
-                        component="h1"
-                        align="center"
-                        sx={{
-                            fontSize: {
-                                xs: '2.25rem', // text-4xl
-                                sm: '3.75rem', // sm:text-6xl
-                                lg: '4.5rem',  // lg:text-7xl
-                            },
-                            letterSpacing: '',
-                            fontWeight: 'bold',
-                        }}
+                    <Grid
+                        container
+                        spacing={2}
+                        alignItems={'center'}
+                        justifyContent={'center'}
                     >
-                        Transforming ideas into <span>reality</span>
-                    </Typography>
-                </motion.div>
+                        <Grid
+                            item
+                            xs={12}
+                            md={6}
+                            lg={6}
+                        >
+                            <motion.div
+                                variants={textVariants}
+                                initial="initial"
+                                animate="animate"
+                            >
+                                <Box
+                                    sx={{
+                                        marginBottom: '16px'
+                                    }}
+                                >
+                                    <motion.div
+                                        initial="hidden"
+                                        animate="visible"
+                                        variants={textVariants}
+                                    >
+                                        <Typography
+                                            variant="h2"
+                                            component="h2"
+                                            sx={{
+                                                letterSpacing: '',
+                                                fontWeight: '700',
+                                                textAlign: { xs: 'center', md: 'Left', lg: 'left' },
+                                                fontSize: { xs: '38px', sm: '42px', md: '50px', lg: "60px" },
+                                            }}
+                                        >
+                                            Transforming ideas into <span>reality</span>
+                                        </Typography>
+                                    </motion.div>
+                                </Box>
 
-                <Box sx={{ mt: 10, textAlign: 'center' }}>
-                    <motion.div
-                        initial="hidden"
-                        animate="visible"
-                        variants={textVariants}
-                    >
-                        <Typography
-                            variant="body1"
+                                <Box
+                                    sx={{
+                                        marginBottom: '24px'
+                                    }}
+                                >
+                                    <motion.div
+                                        initial="hidden"
+                                        animate="visible"
+                                        variants={textVariants}
+                                    >
+                                        <Typography
+                                            variant="body1"
+                                            component='p'
+                                            color='#565973'
+                                            lineHeight='1.6'
+                                            sx={{
+                                                fontWeight: '500',
+                                                textAlign: { xs: 'center', md: 'Left', lg: 'left' },
+                                                fontSize: { xs: '18px', lg: "20px" },
+                                            }}
+                                        >
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab amet,
+                                            voluptatibus iste nobis corporis laudantium
+                                        </Typography>
+                                    </motion.div>
+                                </Box>
+
+                                <motion.div
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={textVariants}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: { xs: 'center', sm: 'center', md: 'left', lg: 'left' },
+                                        }}
+                                    >
+                                        <motion.div
+                                            initial="hidden"
+                                            animate="visible"
+                                            variants={textVariants}
+                                            transition={{ duration: 0.5 }}
+                                        >
+                                            <ButtonComponent
+                                                variant={'contained'}
+                                                size={'large'}
+                                                label={'Get in touch'}
+                                                fullWidth={smallScreen}
+                                            />
+                                        </motion.div>
+                                    </Box>
+                                </motion.div>
+
+                            </motion.div>
+                        </Grid>
+
+                        <Grid
+                            item
+                            xs={12}
+                            md={6}
+                            lg={6}
                             sx={{
-                                fontSize: '1.125rem', // text-lg
-                                color: 'text.secondary',
-                                maxWidth: '48rem', // max-w-4xl
-                                margin: '0 auto', // Centering
+                                paddingLeft: '32px',
+                                paddingTop: '32px',
                             }}
                         >
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab amet,
-                            voluptatibus iste nobis corporis laudantium, labore odio repudiandae quas illo suscipit recusandae consequatur deserunt delectus eaque,
-                            fugiat ea quibusdam nesciunt?
-                        </Typography>
-                    </motion.div>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    height: '100%',
+                                    width: '100%',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <img src={HeroImg} alt="" />
+                            </Box>
+                        </Grid>
+
+                    </Grid>
                 </Box>
+            </Container >
 
-                <motion.div
-                    className='flex justify-center my-10'
-                    initial="hidden"
-                    animate="visible"
-                    variants={textVariants}
-                    transition={{ duration: 0.5 }}
-                >
-                    <motion.div
-                        className='flex justify-center my-10'
-                        initial="hidden"
-                        animate="visible"
-                        variants={textVariants}
-                        transition={{ duration: 0.5 }}
-                    >
-
-                        <ButtonComponent
-                            variant={'contained'}
-                            size={'large'}
-                            label={'Get in touch'}
-                        />
-
-                    </motion.div>
-                </motion.div>
-
-            </motion.div>
-
-            {/* <div className="wrapper">
-
-            </div> */}
-
-            {/* <motion.div
-                className="slidingTextContainer"
-                variants={sliderVariants}
-                initial="initial"
-                animate="animate"
-            >
-                Broadheader
-            </motion.div> */}
-
-            <div className='imageContainer'>
-                <img src="" alt="" />
-            </div>
-
-
-        </div >
+        </Box >
     )
 }
 

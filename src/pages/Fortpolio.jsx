@@ -3,6 +3,8 @@ import { Box, Container, Grid, Typography } from "@mui/material"
 import CardComponent from "../components/common/CardComponent"
 import ButtonComponent from "../components/common/ButtonComponent"
 
+import Testimonials from "../layouts/fortpolio/Testimonials"
+
 const Fortpolio = () => {
 
     const projects = [
@@ -82,7 +84,7 @@ const Fortpolio = () => {
 
                             <Grid container spacing={5}>
                                 {projects.map(({ title, description, image }, index) => (
-                                    <Grid item xs={12} lg={3} key={index}>
+                                    <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                                         <Box
                                             component='a'
                                         >
@@ -129,8 +131,9 @@ const Fortpolio = () => {
                             </Grid>
                         </Box>
                     </Box>
-
                 </Container>
+
+                <Testimonials />
             </Box>
         </div>
     )

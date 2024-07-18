@@ -1,8 +1,7 @@
 import { AppBar, Container, Toolbar, Typography, Box, Button } from "@mui/material"
-
 import SideDrawer from "../components/common/SideDrawer";
-
 import { Link as RouterLink } from "react-router-dom";
+import logo from '../assets/bh-logo.jpg'
 
 const AppbarComponent = () => {
 
@@ -11,6 +10,7 @@ const AppbarComponent = () => {
         { label: "About", path: "about-us" },
         { label: "Services", path: "services" },
         { label: "Fortpolio", path: "fortpolio" },
+        { label: "Products", path: "products" },
     ];
 
     return (
@@ -22,7 +22,34 @@ const AppbarComponent = () => {
         >
             <Container maxWidth='xl'>
                 <Toolbar disableGutters>
-                    <Typography
+
+                    <Box
+                        component={RouterLink}
+                        to={'/'}
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontWeight: 500,
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        <Box
+                            component={'img'}
+                            src={logo}
+                            alt="BH-logo"
+                            sx={{
+                                borderRadius: '3px',
+                                height: '40px',
+                                width: '100px',
+                                marginRight: '1rem',
+                                filter: 'none'
+                            }}
+                        >
+                        </Box>
+                    </Box>
+
+                    {/* <Typography
                         variant="h6"
                         noWrap
                         component={RouterLink}
@@ -36,7 +63,7 @@ const AppbarComponent = () => {
                         }}
                     >
                         BroadHeader
-                    </Typography>
+                    </Typography> */}
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <SideDrawer
@@ -81,13 +108,14 @@ const AppbarComponent = () => {
                                 LinkComponent={RouterLink}
                                 to={'/contact-us'}
                                 variant="contained"
+                                size={'large'}
                                 sx={{
                                     my: 2, color: 'white',
                                     display: 'block',
                                     textTransform: 'capitalize'
                                 }}
                             >
-                                Contact
+                                Contact Us
                             </Button>
                         </div>
 
