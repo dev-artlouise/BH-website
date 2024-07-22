@@ -1,7 +1,12 @@
 import ButtonComponent from '../components/common/ButtonComponent'
 import CardComponent from '../components/common/CardComponent'
+import Introduction from '../layouts/about/Introduction'
+import Stats from '../layouts/about/Stats'
+import Mission from '../layouts/about/Mission'
+import Vision from '../layouts/about/Vision'
+import WorkWithUs from '../layouts/about/WorkWithUs'
 
-import { Grid, Container, Box, Typography, Avatar, Paper } from '@mui/material'
+import { Grid, Container, Box, Typography, Avatar, Paper, } from '@mui/material'
 
 const About = () => {
 
@@ -40,93 +45,76 @@ const About = () => {
 
     return (
         <>
+
+            <Box
+                sx={{
+                    background: '#f3f6ff',
+                    position: 'relative'
+                }}
+            >
+
+                <Box
+                    sx={{
+                        paddingTop: '64px',
+                        paddingBottom: '64px',
+                    }}
+                >
+                    <Container
+                        fixed
+                    >
+                        <Introduction />
+                        <Stats
+                            data={features}
+                        />
+                    </Container>
+
+                </Box>
+
+            </Box>
+
+            <Box>
+                <Box
+                    sx={{
+                        paddingTop: '64px',
+                        paddingBottom: '64px',
+                        margin: '0px, auto',
+                        paddingLeft: '16px',
+                        paddingRight: '16px',
+                    }}
+                >
+                    <Container
+                        fixed
+                    >
+                        <Grid
+                            container
+                            spacing={8}
+                        >
+
+                            {/* Mission */}
+                            <Grid item xs={12} sm={6}>
+                                <Mission />
+                            </Grid>
+
+                            {/* Vision */}
+                            <Grid item xs={12} sm={6}>
+                                <Vision />
+                            </Grid>
+
+                        </Grid>
+                    </Container>
+                </Box>
+            </Box>
+
+            <Box>
+                <WorkWithUs />
+            </Box>
+
             <Container>
                 <Box my={4}>
                     <Grid container spacing={2}>
 
                         <Grid item xs={12}>
-                            <Box
-                                component={'div'}
-                                display="flex"
-                                my={8}
-                                flexDirection="column"
-                                textAlign='center'
-                            >
-                                <Typography
-                                    variant="h4"
-                                    fontSize='1rem'
-                                    fontWeight='500'
-                                    textTransform='uppercase'
-                                >
-                                    We Are Broadheaders
-                                </Typography>
 
-                                <Typography
-                                    variant="h2"
-                                    fontWeight='700'
-                                    mt={4}
-                                >
-                                    We bring your ideas to life and Build products people love
-                                </Typography>
-
-                                <Typography
-                                    variant="h6"
-                                    fontWeight='500'
-                                    mt={4}
-                                >
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto autem obcaecati error aliquam quo, et fugiat dolorem pariatur repellendus soluta culpa labore ex! Facere magnam et natus ex corporis! Provident?
-                                </Typography>
-
-                                <Box mt={4}>
-                                    <ButtonComponent
-                                        label='Contact us'
-                                        variant='outlined'
-                                        size='large'
-                                    />
-                                </Box>
-
-                            </Box>
-                        </Grid>
-
-                        <Grid item xs={12}>
-                            <Box
-                                component='div'
-                            >
-                                <Grid container spacing={2} >
-                                    {features.map(({ label, value }, index) => (
-                                        <Grid item xs={12} lg={4} key={index}>
-                                            <Box display="flex"
-                                                flexDirection='column'
-                                                justifyContent="center"
-                                                alignItems="center"
-                                                height="100%"
-                                                my={5}
-                                            >
-                                                <Typography
-                                                    variant="h3"
-                                                    fontWeight='500'
-                                                    mb={2}
-                                                >
-                                                    {value}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body1"
-                                                >
-                                                    {label}
-                                                </Typography>
-                                            </Box>
-                                        </Grid>
-                                    ))}
-
-                                    <Grid item xs={12}>
-                                        <Box
-                                            my={5}
-                                        >
-                                            <hr />
-                                        </Box>
-                                    </Grid>
-                                </Grid>
-                            </Box>
                         </Grid>
 
                         <Grid item xs={12}>
