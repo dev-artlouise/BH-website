@@ -1,9 +1,8 @@
-import { Box, Container, Typography } from "@mui/material"
+import { Box, Typography, Container } from "@mui/material"
+
 import ButtonComponent from "../../components/common/ButtonComponent"
 
-import ImageDiscuss from '../../assets/services.png'
-
-const Services = () => {
+const WhatWeDo = () => {
     return (
         <Box
             sx={{
@@ -17,17 +16,18 @@ const Services = () => {
                         textAlign='center'
                         marginBottom={4}
                     >
+
                         <Typography
                             variant="body1"
                             gutterBottom
                             component="P"
+                            textAlign='center'
                             fontSize='1rem'
                             fontWeight='500'
                             textTransform='uppercase'
                         >
-                            Our Services
+                            What we do
                         </Typography>
-
 
                         <Typography
                             variant="h3"
@@ -55,42 +55,13 @@ const Services = () => {
                                 size='large'
                             />
                         </Box>
+
                     </Box>
 
-                    {/* Services Image Section */}
-                    <Box
-                        display='flex'
-                        justifyContent='center'
-                        alignItems='center'
-                    >
-                        <img
-                            src={ImageDiscuss}
-                            alt='services-image'
-                            width={520}
-                            height={520}
-                        />
-                        {/* 
-                                <Card
-                                    sx={{
-                                        textAlign: 'center'
-                                    }}
-                                >
-                                    <CardMedia
-                                        component="img"
-                                        image={ImageDiscuss}
-                                        alt='services-image'
-                                        sx={{
-                                            width: '50%',
-                                            height: '50%',
-                                        }}
-                                    />
-                                </Card> */}
-                    </Box>
                 </Box>
             </Container>
-
         </Box>
     )
 }
 
-export default Services
+export default WhatWeDo
