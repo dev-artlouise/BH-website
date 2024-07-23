@@ -5,8 +5,9 @@ import ButtonComponent from "../components/common/ButtonComponent"
 
 import ImageDiscuss from '../assets/services.png'
 
-const Services = () => {
+import OurServices from "../layouts/services/OurServices";
 
+const Services = () => {
 
     const services = [
         { label: 'Web Development', icon: <Monitor height={48} width={48} />, description: 'We design and develop amazing, lightning fast, and high-converting websites that make your business grow.' },
@@ -34,6 +35,9 @@ const Services = () => {
         <>
             {/* <Container> */}
             <Box>
+
+                <OurServices />
+
                 <Container >
                     <Box my={8}>
 
