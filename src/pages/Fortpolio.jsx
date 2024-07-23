@@ -5,41 +5,49 @@ import ButtonComponent from "../components/common/ButtonComponent"
 
 import Testimonials from "../layouts/fortpolio/Testimonials"
 
+import { useNavigate } from "react-router-dom"
+
 const Fortpolio = () => {
+
+    const navigate = useNavigate()
 
     const projects = [
         {
+            id: 1,
             title: 'Project 1',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error',
             image: 'https://via.placeholder.com/150',
-            path: '',
             category: 'Web'
         },
 
         {
+            id: 2,
             title: 'Project 2',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error',
             image: 'https://via.placeholder.com/150',
-            path: '',
             category: 'Mobile'
         },
 
         {
+            id: 3,
             title: 'Project 3',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error',
             image: 'https://via.placeholder.com/150',
-            path: '',
             category: 'Web'
         },
 
         {
+            id: 4,
             title: 'Project 4',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error',
             image: 'https://via.placeholder.com/150',
-            path: '',
             category: 'Mobile'
         },
     ]
+
+    const handleOnNavigateClick = (id) => {
+        navigate(`/projects/${id}`)
+    }
 
     return (
         <div>
@@ -83,7 +91,7 @@ const Fortpolio = () => {
                             </Box>
 
                             <Grid container spacing={5}>
-                                {projects.map(({ title, description, image }, index) => (
+                                {projects.map(({ title, description, image, id }, index) => (
                                     <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                                         <Box
                                             component='a'
@@ -120,7 +128,12 @@ const Fortpolio = () => {
                                                                 width: '100%',
                                                             }}
                                                         >
-                                                            <ButtonComponent label="Learn More" size="small" variant="text" />
+                                                            <ButtonComponent
+                                                                label="Learn More"
+                                                                size="small"
+                                                                variant="text"
+                                                                onClick={() => handleOnNavigateClick(id)}
+                                                            />
                                                         </Box>
                                                     </>
                                                 }
