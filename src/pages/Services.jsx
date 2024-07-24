@@ -11,6 +11,8 @@ import WorkWithUs from "../layouts/about/WorkWithUs";
 import Process from "../layouts/home/Process";
 import SeenOn from "../layouts/services/SeenOn";
 
+import { companies } from "../data";
+
 const Services = () => {
 
     const services = [
@@ -18,15 +20,6 @@ const Services = () => {
         { label: 'Mobile Development', icon: <Smartphone height={48} width={48} />, description: 'We design and develop amazing, lightning fast, and high-converting websites that make your business grow.' },
         { label: 'Product Design', icon: <Component height={48} width={48} />, description: 'We help you transform your idea into a live, intuitive and scalable digital product that your users will use and love.' },
         { label: 'Search Engine Optimization (SEO)', icon: <SearchCheck height={48} width={48} />, description: 'We help you transform your idea into a live, intuitive and scalable digital product that your users will use and love.' }
-    ]
-
-    const prevProjects = [
-        { label: 'Airbnb', img: 'https://assets.maccarianagency.com/svg/logos/airbnb-original.svg' },
-        { label: 'Amazon', img: 'https://assets.maccarianagency.com/svg/logos/amazon-original.svg' },
-        { label: 'Fitbit', img: 'https://assets.maccarianagency.com/svg/logos/fitbit-original.svg' },
-        { label: 'Netflix', img: 'https://assets.maccarianagency.com/svg/logos/netflix-original.svg' },
-        { label: 'Google', img: 'https://assets.maccarianagency.com/svg/logos/google-original.svg' },
-        { label: 'Paypal', img: 'https://assets.maccarianagency.com/svg/logos/paypal-original.svg' },
     ]
 
     const steps = [
@@ -44,7 +37,7 @@ const Services = () => {
                 <WhatWeDo />
                 <WorkWithUs />
                 <SeenOn
-                    data={prevProjects}
+                    data={companies}
                 />
                 <Process />
 

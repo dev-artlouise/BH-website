@@ -26,7 +26,7 @@ const SeenOn = ({ data }) => {
                         justifyContent='center'
                     >
                         {
-                            data.map(({ img, label }, index) => (
+                            data.map(({ img, name }, index) => (
                                 <Box
                                     key={index}
                                     sx={{
@@ -37,7 +37,7 @@ const SeenOn = ({ data }) => {
                                 >
                                     <img
                                         src={img}
-                                        alt={label}
+                                        alt={name}
                                         style=
                                         {{
                                             width: '100%',

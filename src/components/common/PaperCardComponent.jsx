@@ -1,7 +1,7 @@
 import { Paper, CardContent, Typography, Avatar } from '@mui/material'
 import { Box } from 'lucide-react'
 
-const PaperCardComponent = ({ title, description, alignItems, textAlign, avatarWidth, avatarHeight }) => {
+const PaperCardComponent = ({ title, description, alignItems, textAlign, icon, avatarWidth, avatarHeight }) => {
     return (
         <>
             <Paper
@@ -32,10 +32,11 @@ const PaperCardComponent = ({ title, description, alignItems, textAlign, avatarW
                             borderRadius: '20px'
                         }}
                     >
-                        <Box
+                        {icon}
+                        {/* <Box
                             width={avatarWidth}
                             height={avatarHeight}
-                        />
+                        /> */}
                     </Avatar>
 
                     <Typography

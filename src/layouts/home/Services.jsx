@@ -3,16 +3,7 @@ import { Box, Container, Typography } from "@mui/material"
 import CarouselComponent from "../../components/common/CarouselComponent"
 import PaperCardComponent from "../../components/common/PaperCardComponent"
 
-const services = [
-    { id: 1, name: 'Web Design', description: 'We design and develop amazing, lightning fast, and high-converting websites that make your business grow.' },
-    { id: 2, name: 'Web Design', description: 'We design and develop amazing, lightning fast, and high-converting websites that make your business grow.' },
-    { id: 3, name: 'Web Design', description: 'We design and develop amazing, lightning fast, and high-converting websites that make your business grow.' },
-    { id: 4, name: 'Web Design', description: 'We design and develop amazing, lightning fast, and high-converting websites that make your business grow.' },
-    { id: 5, name: 'Web Design', description: 'We design and develop amazing, lightning fast, and high-converting websites that make your business grow.' },
-    { id: 6, name: 'Web Design', description: 'We design and develop amazing, lightning fast, and high-converting websites that make your business grow.' },
-]
-
-const Services = () => {
+const Services = ({ data }) => {
     return (
         <>
             <Box
@@ -73,7 +64,7 @@ const Services = () => {
                             slidesToShow={4}
                             slidesToScroll={4}
                             sliderContent={
-                                services.map(({ id, name, description }) => (
+                                data.map(({ id, title, description }) => (
                                     <Box
                                         key={id}
                                         sx={{
@@ -85,7 +76,7 @@ const Services = () => {
                                             avatarWidth='48'
                                             alignItems='center'
                                             textAlign='center'
-                                            title={name}
+                                            title={title}
                                             description={description}
                                         />
                                     </Box>

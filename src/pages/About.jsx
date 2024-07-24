@@ -21,7 +21,6 @@ const About = () => {
 
     return (
         <>
-
             <Box
                 sx={{
                     background: '#f3f6ff',

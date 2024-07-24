@@ -3,30 +3,8 @@ import { Container, Box, Grid, Typography } from "@mui/material"
 import CarouselComponent from "../../components/common/CarouselComponent"
 import PaperCardComponent from "../../components/common/PaperCardComponent"
 
-import { Lightbulb, SlidersVertical, SquareTerminal } from "lucide-react"
+const Process = ({ data }) => {
 
-const process = [
-    {
-        id: 1,
-        name: 'Idea',
-        description: 'We start by meeting with your team to understand your project idea and objectives. Following this, our team collaborates to develop an action plan and proposal for your project.',
-        icon: <Lightbulb height={48} width={48} />
-    },
-    {
-        id: 2,
-        name: 'Design',
-        description: 'We begin by creating a mockup or prototype of your website and presenting it to you. With the initial mockup in hand, we then initiate the revision process to refine and perfect it.',
-        icon: <SlidersVertical height={48} width={48} />
-    },
-    {
-        id: 3,
-        name: 'Development',
-        description: 'We build your website following the best practices and standards to ensure it is fully responsive, incredibly fast, SEO-friendly, and highly scalable.',
-        icon: <SquareTerminal height={48} width={48} />,
-    },
-]
-
-const Process = () => {
     return (
         <Box
             sx={{
@@ -108,7 +86,7 @@ const Process = () => {
                                     slidesToShow={1}
                                     slidesToScroll={1}
                                     sliderContent={
-                                        process.map(({ id, name, description, icon }) => (
+                                        data.map(({ id, name, description, icon }) => (
                                             <Box
                                                 key={id}
                                                 sx={{
@@ -119,6 +97,7 @@ const Process = () => {
                                                     alignItems='left'
                                                     textAlign='left'
                                                     title={name}
+                                                    icon={icon}
                                                     description={description}
                                                     avatarHeight='48'
                                                     avatarWidth='48'

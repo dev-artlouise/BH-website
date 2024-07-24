@@ -1,15 +1,6 @@
 import { Box, Typography } from '@mui/material'
 
-const companies = [
-    { id: 1, name: 'airbnb', img: 'https://assets.maccarianagency.com/svg/logos/airbnb-original.svg' },
-    { id: 2, name: 'amazon', img: 'https://assets.maccarianagency.com/svg/logos/amazon-original.svg' },
-    { id: 3, name: 'fitbit', img: 'https://assets.maccarianagency.com/svg/logos/fitbit-original.svg' },
-    { id: 4, name: 'netflix', img: 'https://assets.maccarianagency.com/svg/logos/netflix-original.svg' },
-    { id: 5, name: 'google', img: 'https://assets.maccarianagency.com/svg/logos/google-original.svg' },
-    { id: 6, name: 'paypal', img: 'https://assets.maccarianagency.com/svg/logos/paypal-original.svg' },
-]
-
-const Companies = () => {
+const Companies = ({ data }) => {
     return (
         <Box
             sx={{
@@ -46,9 +37,8 @@ const Companies = () => {
                         justifyContent: 'center'
                     }}
                 >
-                    {companies.map(({ id, img }) => (
+                    {data.map(({ id, img }) => (
                         <Box
-
                             key={id}
                             sx={{
                                 maxWidth: '90px',
