@@ -1,25 +1,35 @@
-import Hero from "../components/Hero";
+import Hero from "../layouts/sections/Hero";
+import Projects from "../layouts/sections/Projects"
+import Testimonials from "../layouts/sections/Testimonials";
+import ContactForm from "../layouts/sections/ContactForm";
+
 import Companies from "../layouts/home/Companies";
 import Services from "../layouts/home/Services";
-import WorkWithUs from "../layouts/home/WorkWithUs";
 import Process from "../layouts/home/Process";
-import Projects from "../layouts/home/Projects";
-import Reviews from "../layouts/home/Reviews";
-import Contact from "../layouts/home/ContactForm";
 
-import { Container } from "@mui/material";
+//data
+import { services, companies, process, projects, testimonials } from "../data";
 
 const Home = () => {
     return (
         <>
             <Hero />
-            <Companies />
-            <WorkWithUs />
-            <Services />
-            <Process />
-            <Projects />
-            <Reviews />
-            <Contact />
+            <Companies
+                data={companies}
+            />
+            <Services
+                data={services}
+            />
+            <Process
+                data={process}
+            />
+            <Projects
+                data={projects}
+            />
+            <Testimonials
+                data={testimonials}
+            />
+            <ContactForm />
         </>
     )
 }

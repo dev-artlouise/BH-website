@@ -1,6 +1,12 @@
-import { Box, Container, Typography } from "@mui/material"
+import { Box, Container, Typography, Grid } from "@mui/material"
 
-const WorkWithUs = () => {
+import PaperCardComponent from "../../components/common/PaperCardComponent"
+import CarouselComponent from "../../components/common/CarouselComponent"
+
+import { services } from "../../data"
+
+const WorkWithUs = ({ data }) => {
+
     return (
         <Box
             sx={{
@@ -8,57 +14,94 @@ const WorkWithUs = () => {
                 position: 'relative',
             }}
         >
-
-            <Box
-                sx={{
-                    paddingTop: '64px',
-                    paddingBottom: '64px'
-                }}
+            <Container
+                fixed
+                justifyContent='center'
+                alignItems='centerr'
             >
-                <Container>
-                    <Box
-                        sx={{
-                            maxWidth: { sm: '720px', lg: '1236px' }
-                        }}
+                <Box
+                    sx={{
+                        paddingTop: '64px',
+                        paddingBottom: '64px'
+                    }}
+                >
+                    <Grid
+                        container
+                        spacing={2}
                     >
-                        <Box
-                            sx={{
-                                marginBottom: '32px'
-                            }}
+                        <Grid
+                            xs={12}
+                            sm={10}
+                            md={6}
+                            item
                         >
-                            <Typography
-                                variant='body1'
-                                fontWeight='500'
-                                textTransform='uppercase'
-                                gutterBottom
+                            <Box
+                                sx={{
+                                    marginBottom: '32px'
+                                }}
                             >
-                                Why choose us
-                            </Typography>
+                                <Typography
+                                    variant='body1'
+                                    fontWeight='500'
+                                    textTransform='uppercase'
+                                    gutterBottom
+                                >
+                                    Why choose us
+                                </Typography>
 
-                            <Typography
-                                variant='h3'
-                                fontWeight='700'
-                                gutterBottom
-                            >
-                                High-impact design & development services
-                            </Typography>
+                                <Typography
+                                    variant='h3'
+                                    fontWeight='700'
+                                    gutterBottom
+                                >
+                                    High-impact design & development services
+                                </Typography>
 
-                            <Typography
-                                variant='body1'
-                                fontWeight='500'
-                                fontSize='1.2rem'
-                                gutterBottom
-                            >
-                                We take you by hand on each step of the process
-                            </Typography>
-                        </Box>
+                                <Typography
+                                    variant='body1'
+                                    fontWeight='500'
+                                    fontSize='1.2rem'
+                                    gutterBottom
+                                >
+                                    We take you by hand on each step of the process
+                                </Typography>
+                            </Box>
+                        </Grid>
 
-                    </Box>
-                </Container>
 
-            </Box>
+                        <Grid
+                            xs={12}
+                            sm={10}
+                            md={6}
+                            item
+                        >
+                            <CarouselComponent
+                                slidesToShow={1}
+                                slidesToScroll={1}
+                                sliderContent={
+                                    services.map(({ id, title, description }) => (
+                                        <Box
+                                            key={id}
+                                            sx={{
+                                                padding: '16px'
+                                            }}
+                                        >
+                                            <PaperCardComponent
+                                                alignItems='left'
+                                                textAlign='left'
+                                                title={title}
+                                                description={description}
+                                            />
+                                        </Box>
+                                    ))
+                                }
+                            />
+                        </Grid>
+                    </Grid>
 
-        </Box>
+                </Box>
+            </Container>
+        </Box >
     )
 }
 

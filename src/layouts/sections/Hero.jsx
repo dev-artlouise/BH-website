@@ -1,9 +1,7 @@
-// import './hero.scss'
-
 import { Typography, Box, Grid, Container, useTheme, useMediaQuery } from '@mui/material'
-import ButtonComponent from './common/ButtonComponent'
+import ButtonComponent from '../../components/common/ButtonComponent'
 import { animate, motion } from 'framer-motion'
-import HeroImg from '../assets/hero-img.png'
+import HeroImg from '../../assets/hero-img.png'
 
 const Hero = () => {
 

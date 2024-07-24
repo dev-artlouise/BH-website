@@ -7,7 +7,10 @@ import Services from '../pages/Services';
 import Fortpolio from '../pages/Fortpolio';
 import Contact from "../pages/Contact";
 import Products from "../pages/Products";
+import Projects from '../pages/projects/Projects';
+import Project from "../pages/projects/Project";
 import NotFound from "../pages/NotFound";
+
 
 const router = createBrowserRouter([
 
@@ -39,6 +42,17 @@ const router = createBrowserRouter([
             {
                 path: '/products',
                 element: <Products />,
+            },
+
+            {
+                path: '/projects',
+                element: <Projects />,
+                children: [
+                    {
+                        path: ':id',
+                        element: <Project />
+                    }
+                ]
             },
 
             {
