@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, Lightbulb, SlidersVertical, SquareTerminal } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Lightbulb, SlidersVertical, SquareTerminal, Monitor, Smartphone, Component, SearchCheck } from "lucide-react";
 
 export const companies = [
     {
@@ -42,6 +42,13 @@ export const contacts = [
 export const socials = [
     { label: 'Facebook', icon: <Facebook /> },
     { label: 'Instagram', icon: <Instagram /> },
+]
+
+export const servicesWeb = [
+    { label: 'Web Development', icon: <Monitor height={48} width={48} />, description: 'We design and develop amazing, lightning fast, and high-converting websites that make your business grow.' },
+    { label: 'Mobile Development', icon: <Smartphone height={48} width={48} />, description: 'We design and develop amazing, lightning fast, and high-converting websites that make your business grow.' },
+    { label: 'Product Design', icon: <Component height={48} width={48} />, description: 'We help you transform your idea into a live, intuitive and scalable digital product that your users will use and love.' },
+    { label: 'Search Engine Optimization (SEO)', icon: <SearchCheck height={48} width={48} />, description: 'We help you transform your idea into a live, intuitive and scalable digital product that your users will use and love.' }
 ]
 
 export const services = [

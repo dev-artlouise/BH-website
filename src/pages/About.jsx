@@ -4,7 +4,7 @@ import Introduction from '../layouts/about/Introduction'
 import Stats from '../layouts/about/Stats'
 import Mission from '../layouts/about/Mission'
 import Vision from '../layouts/about/Vision'
-import WorkWithUs from '../layouts/about/WorkWithUs'
+import WorkWithUs from '../layouts/sections/WorkWithUs'
 import OurStory from '../layouts/about/OurStory'
 import Team from '../layouts/about/Team'
 
