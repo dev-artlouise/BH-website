@@ -2,9 +2,15 @@ import { Typography, Box, Grid, Container, useTheme, useMediaQuery } from '@mui/
 import ButtonComponent from '../../components/common/ButtonComponent'
 import { animate, motion } from 'framer-motion'
 import HeroImg from '../../assets/hero-img.png'
-import { useHeroSection } from '../../hooks/useHeroSection'
+import { useHeroSection } from '../../hooks/useMainPage'
 const Hero = () => {
-    const { isLoading, error, data } = useHeroSection();
+    const { isLoading, error, data: {
+        data: {
+            image = "",
+            title = "",
+            content = ""
+        } = {}
+    } = {} } = useHeroSection();
     const theme = useTheme();
     const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -44,7 +50,7 @@ const Hero = () => {
                 position: 'relative'
             }}
         >
-            {/* {JSON.stringify(data.data.image)} */}
+            {/* {JSON.stringify(datas)} */}
             <Container>
                 <Box
                     sx={{
@@ -95,7 +101,7 @@ const Hero = () => {
                                                 fontSize: { xs: '38px', sm: '42px', md: '50px', lg: "60px" },
                                             }}
                                         >
-                                            Transforming ideas into <span>reality</span>
+                                            {title && title}
                                         </Typography>
                                     </motion.div>
                                 </Box>
@@ -121,8 +127,7 @@ const Hero = () => {
                                                 fontSize: { xs: '18px', lg: "20px" },
                                             }}
                                         >
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab amet,
-                                            voluptatibus iste nobis corporis laudantium
+                                            {content && content}
                                         </Typography>
                                     </motion.div>
                                 </Box>
@@ -178,7 +183,7 @@ const Hero = () => {
                                     alignItems: 'center',
                                 }}
                             >
-                                <img src={data && data.data.image} alt="" />
+                                <img src={image && image} alt="" />
                             </Box>
                         </Grid>
 

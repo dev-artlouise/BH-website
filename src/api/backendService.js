@@ -10,3 +10,12 @@ export const fetchHero = async (/*token*/) => {
     if (!response.ok) throw new Error('Failed to fetch repository data');
     return response.json();
 };
+export const fetchCompanies = async (/*token*/) => {
+    const response = await fetch(`${API_URL}/companies`, {
+        // headers: {
+        //     Authorization: `Bearer ${token}`,
+        // },
+    });
+    if (!response.ok) throw new Error('Failed to fetch repository data');
+    return response.json();
+};

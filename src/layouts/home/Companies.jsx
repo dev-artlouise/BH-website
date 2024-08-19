@@ -1,6 +1,8 @@
 import { Box, Typography } from '@mui/material'
+import { useCompaniesSection } from '../../hooks/useMainPage';
 
 const Companies = ({ data }) => {
+    const { isLoading, error, data: datas } = useCompaniesSection();
     return (
         <Box
             sx={{
@@ -37,7 +39,7 @@ const Companies = ({ data }) => {
                         justifyContent: 'center'
                     }}
                 >
-                    {data.map(({ id, img }) => (
+                    {datas?.map(({ id, urlimage: img }) => (
                         <Box
                             key={id}
                             sx={{
