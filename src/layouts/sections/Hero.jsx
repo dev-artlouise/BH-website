@@ -2,9 +2,9 @@ import { Typography, Box, Grid, Container, useTheme, useMediaQuery } from '@mui/
 import ButtonComponent from '../../components/common/ButtonComponent'
 import { animate, motion } from 'framer-motion'
 import HeroImg from '../../assets/hero-img.png'
-
+import { useHeroSection } from '../../hooks/useHeroSection'
 const Hero = () => {
-
+    const { isLoading, error, data } = useHeroSection();
     const theme = useTheme();
     const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -44,6 +44,7 @@ const Hero = () => {
                 position: 'relative'
             }}
         >
+            {/* {JSON.stringify(data.data.image)} */}
             <Container>
                 <Box
                     sx={{
@@ -177,7 +178,7 @@ const Hero = () => {
                                     alignItems: 'center',
                                 }}
                             >
-                                <img src={HeroImg} alt="" />
+                                <img src={data && data.data.image} alt="" />
                             </Box>
                         </Grid>
 
