@@ -1,5 +1,4 @@
 import { Paper, CardContent, Typography, Avatar } from '@mui/material'
-import { Box } from 'lucide-react'
 
 const PaperCardComponent = ({ title, description, alignItems, textAlign, icon, avatarWidth, avatarHeight }) => {
     return (
