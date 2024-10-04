@@ -54,7 +54,7 @@ const Process = () => {
                         >
                             <Grid
                                 xs={12}
-                                sm={10}
+
                                 md={6}
                                 item
                             >
@@ -100,46 +100,47 @@ const Process = () => {
                                     </Box>
                                 </Box>
                             </Grid>
-                        </Grid>
 
-                        {/* <Grid
+                            <Grid
                                 xs={12}
-                                sm={10}
                                 md={6}
                                 item
-                            > */}
-                        <Box>
+                            >
+                                <Box>
 
-                            {isLoading ?
-                                <LoadingFlowList />
-                                :
-                                <CarouselComponent
-                                    slidesToShow={1}
-                                    slidesToScroll={1}
-                                    sliderContent={
-                                        flowListData?.map(({ id, title, content, logo_url }) => (
-                                            <Box
-                                                key={id}
-                                                sx={{
-                                                    padding: '16px'
-                                                }}
-                                            >
-                                                <PaperCardComponent
-                                                    alignItems='left'
-                                                    textAlign='left'
-                                                    title={title}
-                                                    icon={logo_url}
-                                                    description={content}
-                                                    avatarHeight='48'
-                                                    avatarWidth='48'
-                                                />
-                                            </Box>
-                                        ))
+                                    {isLoading ?
+                                        <LoadingFlowList />
+                                        :
+                                        <CarouselComponent
+                                            slidesToShow={1}
+                                            slidesToScroll={1}
+                                            sliderContent={
+                                                flowListData?.map(({ id, title, content, logo_url }) => (
+                                                    <Box
+                                                        key={id}
+                                                        sx={{
+                                                            padding: '16px'
+                                                        }}
+                                                    >
+                                                        <PaperCardComponent
+                                                            alignItems='left'
+                                                            textAlign='left'
+                                                            title={title}
+                                                            icon={logo_url}
+                                                            description={content}
+                                                            avatarHeight='48'
+                                                            avatarWidth='48'
+                                                        />
+                                                    </Box>
+                                                ))
+                                            }
+                                        />
                                     }
-                                />
-                            }
-                        </Box>
-                        {/* </Grid> */}
+                                </Box>
+                            </Grid>
+                        </Grid>
+
+
 
                     </Box>
                 </Box>

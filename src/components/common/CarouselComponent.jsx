@@ -21,15 +21,15 @@ const CarouselComponent = ({ sliderContent, slidesToShow, slidesToScroll }) => {
             {
                 breakpoint: 1200, // Adjust for large screens
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: slidesToShow,
+                    slidesToScroll: slidesToScroll,
                 },
             },
             {
                 breakpoint: 900, // Adjust for medium screens
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
                 },
             },
             {
