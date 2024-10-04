@@ -17,6 +17,29 @@ const CarouselComponent = ({ sliderContent, slidesToShow, slidesToScroll }) => {
         slidesToShow: slidesToShow,
         slidesToScroll: slidesToScroll,
         arrows: false,
+        responsive: [
+            {
+                breakpoint: 1200, // Adjust for large screens
+                settings: {
+                    slidesToShow: slidesToShow,
+                    slidesToScroll: slidesToScroll,
+                },
+            },
+            {
+                breakpoint: 900, // Adjust for medium screens
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 600, // Adjust for small screens
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     useEffect(() => {

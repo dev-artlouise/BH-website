@@ -8,24 +8,16 @@ import Services from "../layouts/home/Services";
 import Process from "../layouts/home/Process";
 
 //data
-import { services, companies, process, projects, testimonials } from "../data";
+import { testimonials } from "../data";
 
 const Home = () => {
     return (
         <>
             <Hero />
-            <Companies
-                data={companies}
-            />
-            <Services
-                data={services}
-            />
-            <Process
-                data={process}
-            />
-            <Projects
-                data={projects}
-            />
+            <Companies />
+            <Services />
+            <Process />
+            <Projects />
             <Testimonials
                 data={testimonials}
             />

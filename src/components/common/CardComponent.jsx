@@ -6,7 +6,7 @@ const CardComponent = ({ image, title, cardContent, cardActions }) => {
             <Card
                 sx={{
                     height: '100%',
-                    borderRadius: '12px'
+                    borderRadius: '12px',
                 }}
             >
                 <CardMedia

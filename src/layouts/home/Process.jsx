@@ -1,9 +1,34 @@
-import { Container, Box, Grid, Typography } from "@mui/material"
+import { Container, Box, Grid, Typography, Paper, CardContent } from "@mui/material"
 
 import CarouselComponent from "../../components/common/CarouselComponent"
 import PaperCardComponent from "../../components/common/PaperCardComponent"
+import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent"
 
-const Process = ({ data }) => {
+import { useFlowListSection } from "../../hooks/useMainPage"
+
+const Process = () => {
+
+    const { isLoading, error, data: flowList } = useFlowListSection();
+
+    const flowListData = flowList?.data
+
+    const LoadingFlowList = () => (
+        <Box sx={{ padding: '16px' }}>
+            <Grid container spacing={2}>
+                {Array.from({ length: 1 }).map((_, index) => (
+                    <Grid item xs={12} sm={6} md={3} key={index}>
+                        <Paper sx={{ borderRadius: '20px', paddingBottom: '24px' }}>
+                            <CardContent sx={{ padding: '48px', paddingBottom: '48px', display: 'flex', flexDirection: 'column' }}>
+                                <SkeletonLoaderComponent variant="rounded" height={150} />
+                                <SkeletonLoaderComponent variant="text" width="80%" height={30} marginTop={1} />
+                                <SkeletonLoaderComponent variant="text" width="60%" height={20} marginTop={1} />
+                            </CardContent>
+                        </Paper>
+                    </Grid>
+                ))}
+            </Grid>
+        </Box>
+    );
 
     return (
         <Box
@@ -29,7 +54,7 @@ const Process = ({ data }) => {
                         >
                             <Grid
                                 xs={12}
-                                sm={10}
+
                                 md={6}
                                 item
                             >
@@ -78,42 +103,51 @@ const Process = ({ data }) => {
 
                             <Grid
                                 xs={12}
-                                sm={10}
                                 md={6}
                                 item
                             >
-                                <CarouselComponent
-                                    slidesToShow={1}
-                                    slidesToScroll={1}
-                                    sliderContent={
-                                        data.map(({ id, name, description, icon }) => (
-                                            <Box
-                                                key={id}
-                                                sx={{
-                                                    padding: '16px'
-                                                }}
-                                            >
-                                                <PaperCardComponent
-                                                    alignItems='left'
-                                                    textAlign='left'
-                                                    title={name}
-                                                    icon={icon}
-                                                    description={description}
-                                                    avatarHeight='48'
-                                                    avatarWidth='48'
-                                                />
-                                            </Box>
-                                        ))
+                                <Box>
+
+                                    {isLoading ?
+                                        <LoadingFlowList />
+                                        :
+                                        <CarouselComponent
+                                            slidesToShow={1}
+                                            slidesToScroll={1}
+                                            sliderContent={
+                                                flowListData?.map(({ id, title, content, logo_url }) => (
+                                                    <Box
+                                                        key={id}
+                                                        sx={{
+                                                            padding: '16px'
+                                                        }}
+                                                    >
+                                                        <PaperCardComponent
+                                                            alignItems='left'
+                                                            textAlign='left'
+                                                            title={title}
+                                                            icon={logo_url}
+                                                            description={content}
+                                                            avatarHeight='48'
+                                                            avatarWidth='48'
+                                                        />
+                                                    </Box>
+                                                ))
+                                            }
+                                        />
                                     }
-                                />
+                                </Box>
                             </Grid>
                         </Grid>
+
+
+
                     </Box>
                 </Box>
 
             </Container >
 
-        </Box>
+        </Box >
     )
 }
 
