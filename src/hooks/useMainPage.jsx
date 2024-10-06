@@ -1,5 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchHero, fetchCompanies, fetchProjects, fetchServices, fetchService, fetchFlowList } from '../api/backendService';
+import {
+    fetchHero,
+    fetchCompanies,
+    fetchProjects,
+    fetchProjectContent,
+    fetchServices,
+    fetchService,
+    fetchFlowList
+} from '../api/backendService';
 // import useAuthStore from '../store/useAuthStore';
 
 //get hero section content
@@ -64,12 +72,27 @@ export const useServiceListSection = () => {
 };
 
 //get projects
-export const useProjectsSection = () => {
+export const useProjectsList = () => {
     // const { token } = useAuthStore(); // Retrieve token from Zustand store
 
     return useQuery({
         queryKey: ['projectsData'], // Unique key for the query
         queryFn: () => fetchProjects(), // Pass token to fetch function
+        //enabled: !!token, // Only fetch if token is available
+        retry: false, // Optional: Disable automatic retries if desired
+        onError: (error) => {
+            console.error('Error fetching projects data:', error.message);
+        },
+    });
+};
+
+//get project content
+export const useProjectContent = () => {
+    // const { token } = useAuthStore(); // Retrieve token from Zustand store
+
+    return useQuery({
+        queryKey: ['projectData'], // Unique key for the query
+        queryFn: () => fetchProject(), // Pass token to fetch function
         //enabled: !!token, // Only fetch if token is available
         retry: false, // Optional: Disable automatic retries if desired
         onError: (error) => {

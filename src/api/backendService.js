@@ -42,6 +42,15 @@ export const fetchServices = async (/*token*/) => {
     return response.json();
 };
 
+export const fetchProjectContent = async (/*token*/) => {
+    const response = await fetch(`${API_URL}/project`, {
+        // headers: {
+        //     Authorization: `Bearer ${token}`,
+        // },
+    });
+    if (!response.ok) throw new Error('Failed to fetch project content data');
+    return response.json();
+};
 
 export const fetchProjects = async (/*token*/) => {
     const response = await fetch(`${API_URL}/projectList`, {
