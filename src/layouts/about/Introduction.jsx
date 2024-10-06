@@ -1,68 +1,78 @@
-import { Typography, Box } from "@mui/material"
-import ButtonComponent from "../../components/common/ButtonComponent"
+import { Typography, Box } from "@mui/material";
+import ButtonComponent from "../../components/common/ButtonComponent";
+import { useAboutUs } from "../../hooks/useAboutPage";
+import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
+
+const LoadingAboutUs = () => (
+  <Box
+    sx={{
+      padding: "16px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    <SkeletonLoaderComponent
+      variant="text"
+      width="100%"
+      height={150}
+      marginTop={1}
+    />
+    <SkeletonLoaderComponent variant="text" width="100%" height={50} />
+  </Box>
+);
 
 const Introduction = () => {
-    return (
-        <Box
-            sx={{
-                marginBottom: '32px'
-            }}
-        >
-            <Typography
-                variant='body1'
-                fontWeight='500'
-                textTransform='uppercase'
-                textAlign='center'
-                gutterBottom
-            >
-                We Are Broadheaders
-            </Typography>
+  const { isLoading, data } = useAboutUs();
+  const { title, content } = data?.data || {};
 
-            <Box
-                sx={{
-                    marginBottom: '16px'
-                }}
-            >
-                <Typography
-                    variant='h3'
-                    fontWeight='700'
-                    textAlign='center'
-                    gutterBottom
-                >
-                    We bring your ideas to life and Build products people love
-                </Typography>
-            </Box>
+  return (
+    <Box sx={{ marginBottom: "32px" }}>
+      <Typography
+        variant="body1"
+        fontWeight="500"
+        textTransform="uppercase"
+        textAlign="center"
+        gutterBottom
+      >
+        We Are Broadheaders
+      </Typography>
 
-            <Box
-                sx={{
-                    marginBottom: '32px'
-                }}
-            >
-                <Typography
-                    variant='h6'
-                    fontWeight='500'
-                    fontSize='1.2rem'
-                    textAlign='center'
-                    gutterBottom
-                >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto autem obcaecati error aliquam quo, et fugiat dolorem pariatur repellendus soluta culpa labore ex! Facere magnam et natus ex corporis! Provident?
-                </Typography>
-            </Box>
+      {isLoading ? (
+        <LoadingAboutUs />
+      ) : (
+        <>
+          <Typography
+            variant="h3"
+            fontWeight="700"
+            textAlign="center"
+            gutterBottom
+          >
+            {title}
+          </Typography>
 
-            <Box
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center'
-                }}
-            >
-                <ButtonComponent
-                    label='Contact us'
-                    variant='contained'
-                    size='large'
-                />
-            </Box>
-        </Box>
-    )
-}
+          <Typography
+            variant="h6"
+            fontWeight="500"
+            fontSize="1.2rem"
+            textAlign="center"
+            gutterBottom
+          >
+            {content}
+          </Typography>
 
-export default Introduction
+          <Box display="flex" justifyContent="center">
+            <ButtonComponent
+              label="Contact us"
+              variant="contained"
+              size="large"
+            />
+          </Box>
+        </>
+      )}
+    </Box>
+  );
+};
+
+export default Introduction;

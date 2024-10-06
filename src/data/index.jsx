@@ -211,7 +211,7 @@ export const testimonials = [
     id: 2,
     name: "Jane Smith",
     description:
-      "This is great bundle. I can contruct anything in just 10 minuts. Absolutelly love it! 10 out of 10.",
+      "This is great bundle. I can contruct anything in just 10 minutes. Absolutely love it! 10 out of 10.",
     avatar: "",
     company: "Blue Horizon Technologies",
     positon: "CEO",
