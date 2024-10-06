@@ -9,12 +9,12 @@ import Team from "../layouts/about/Team";
 
 import Services from "../layouts/home/Services";
 
+import { useVisionandMission } from "../hooks/useAboutPage";
+
 const About = () => {
-  const features = [
-    { label: "Years in business", value: "7" },
-    { label: "Projects Delivered", value: "150+" },
-    { label: "Satisfied Customer", value: "99%" },
-  ];
+  const { isLoading, data } = useVisionandMission();
+
+  const { mission, vision } = data?.data || {};
 
   return (
     <>
@@ -44,12 +44,12 @@ const About = () => {
           <Grid container spacing={8}>
             {/* Mission */}
             <Grid item xs={12} sm={6}>
-              <Mission />
+              <Mission isLoading={isLoading} data={mission} />
             </Grid>
 
             {/* Vision */}
             <Grid item xs={12} sm={6}>
-              <Vision />
+              <Vision isLoading={isLoading} data={vision} />
             </Grid>
           </Grid>
         </Container>
