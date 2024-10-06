@@ -1,108 +1,103 @@
-import { Box, Grid, Paper, Typography, Avatar, Container } from "@mui/material"
+import { Box, Grid, Paper, Typography, Avatar, Container } from "@mui/material";
+import { useTeam } from "../../hooks/useAboutPage";
+import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
 
-const teamMembers = [
-    {
-        name: 'John Doe',
-        title: 'CEO',
-        description: ' pariatur doloribus quibusdam qui molestias.',
-        photo: 'https://via.placeholder.com/150',
-    },
-    {
-        name: 'Jane Smith',
-        title: 'CTO',
-        description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
-        photo: 'https://via.placeholder.com/150',
-    },
-    {
-        name: 'Sara Johnson',
-        title: 'CFO',
-        description: 'Quaerat et ea dicta quos possimus vitae fuga magni nisi eveniet,',
-        photo: 'https://via.placeholder.com/150',
-    },
-    {
-        name: 'Sara Johnson',
-        title: 'CFO',
-        description: 'Illum quae voluptatibus provident praesentium doloribus.',
-        photo: 'https://via.placeholder.com/150',
-    },
-];
+const LoadingComponent = () => (
+  <Box sx={{ marginTop: "2rem" }}>
+    <Grid container spacing={2}>
+      {Array.from({ length: 4 }).map((_, index) => (
+        <Grid item xs={12} sm={6} md={3} key={index}>
+          <Paper sx={{ padding: "1.5rem", borderRadius: "12px" }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "1rem",
+              }}
+            >
+              <SkeletonLoaderComponent
+                variant="circular"
+                width={80}
+                height={80}
+              />
+            </Box>
+            <SkeletonLoaderComponent variant="text" width="80%" height={30} />
+            <SkeletonLoaderComponent
+              variant="text"
+              width="20%"
+              height={20}
+              sx={{ mt: 1 }}
+            />
+            <SkeletonLoaderComponent
+              variant="text"
+              width="100%"
+              height={100}
+              sx={{ mt: 1 }}
+            />
+          </Paper>
+        </Grid>
+      ))}
+    </Grid>
+  </Box>
+);
 
 const Team = () => {
-    return (
-        <Box
-            component={'div'}
-            display="flex"
-            my={8}
-            flexDirection="column"
-            textAlign='center'
-        >
-            <Typography
-                variant="h4"
-                fontSize='1rem'
-                fontWeight='500'
-                textTransform='uppercase'
-            >
-                Meet the Team
-            </Typography>
+  const { isLoading, data } = useTeam();
+  const team = data?.data;
 
-            <Container>
+  return (
+    <Box display="flex" flexDirection="column" textAlign="center" my={8}>
+      <Typography
+        variant="h4"
+        fontSize="1rem"
+        fontWeight="500"
+        textTransform="uppercase"
+      >
+        Meet the Team
+      </Typography>
 
-                <Box
-                    my={5}
-                >
-                    <Grid container spacing={4}  >
-                        {teamMembers.map(({ photo, name, title, description }, index) => (
-                            <Grid item xs={12} sm={6} md={3} key={index}>
-                                <Paper
-                                    elevation={3}
-                                    sx={{
-                                        height: '275px',
-                                        borderRadius: '12px',
-                                        // backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))'
-                                    }}>
-                                    <Box
-                                        p={2}
-                                    >
-                                        <Avatar
-                                            src={photo}
-                                            alt={name}
-                                            sx={{
-                                                width: 80,
-                                                height: 80,
-                                            }}
-                                        />
-                                        <Box
-                                            mt={4}
-                                            textAlign='start'
-                                        // color='#F9FAFC'
-                                        >
-                                            <Box my={2}>
-                                                <Typography
-                                                    variant="body1" component="span">
-                                                    {name}
-                                                </Typography>
-                                                <Typography variant="body2" color="">
-                                                    {title}
-                                                </Typography>
-                                            </Box>
+      <Container>
+        {isLoading ? (
+          <LoadingComponent />
+        ) : (
+          <Box my={5}>
+            <Grid container spacing={4}>
+              {team?.map(({ avatar, fullname, position, message }, index) => (
+                <Grid item xs={12} sm={6} md={3} key={index}>
+                  <Paper
+                    elevation={3}
+                    sx={{ height: "365px", borderRadius: "12px" }}
+                  >
+                    <Box p={3}>
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        <Avatar
+                          src={avatar}
+                          alt={fullname}
+                          sx={{ width: 80, height: 80 }}
+                        />
+                      </Box>
+                      <Box mt={3} textAlign="start">
+                        <Box my={1}>
+                          <Typography variant="body1">{fullname}</Typography>
+                          <Typography variant="body2">{position}</Typography>
+                        </Box>
+                        <Typography variant="body2">"{message}"</Typography>
+                      </Box>
+                    </Box>
+                  </Paper>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        )}
+      </Container>
+    </Box>
+  );
+};
 
-                                            <Typography variant="body2" color="">
-                                                {description}
-                                            </Typography>
-                                        </Box>
-
-                                    </Box>
-                                </Paper>
-                            </Grid>
-                        ))}
-
-                    </Grid>
-                </Box>
-            </Container>
-
-
-        </Box>
-    )
-}
-
-export default Team
+export default Team;

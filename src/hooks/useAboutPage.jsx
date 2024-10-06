@@ -4,6 +4,8 @@ import {
   fetchStats,
   fetchAboutUs,
   fetchMissionVision,
+  fetchOurStory,
+  fetchTeam,
 } from "../api/backendService";
 
 export const useStats = () => {
@@ -44,6 +46,34 @@ export const useVisionandMission = () => {
     retry: false, // Optional: Disable automatic retries if desired
     onError: (error) => {
       console.error("Error fetching projects data:", error.message);
+    },
+  });
+};
+
+export const useOurStory = () => {
+  // const { token } = useAuthStore(); // Retrieve token from Zustand store
+
+  return useQuery({
+    queryKey: ["ourStoryData"], // Unique key for the query
+    queryFn: () => fetchOurStory(), // Pass token to fetch function
+    //enabled: !!token, // Only fetch if token is available
+    retry: false, // Optional: Disable automatic retries if desired
+    onError: (error) => {
+      console.error("Error fetching projects data:", error.message);
+    },
+  });
+};
+
+export const useTeam = () => {
+  // const { token } = useAuthStore(); // Retrieve token from Zustand store
+
+  return useQuery({
+    queryKey: ["teamData"], // Unique key for the query
+    queryFn: () => fetchTeam(), // Pass token to fetch function
+    //enabled: !!token, // Only fetch if token is available
+    retry: false, // Optional: Disable automatic retries if desired
+    onError: (error) => {
+      console.error("Error fetching our team data:", error.message);
     },
   });
 };

@@ -1,64 +1,72 @@
-import { Container, Box, Typography } from "@mui/material"
+import { Container, Box, Typography } from "@mui/material";
+import ButtonComponent from "../../components/common/ButtonComponent";
+import { useOurStory } from "../../hooks/useAboutPage";
+import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
 
-import ButtonComponent from "../../components/common/ButtonComponent"
+const LoadingComponent = () => (
+  <Box
+    sx={{
+      padding: "16px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    <SkeletonLoaderComponent variant="text" width="100%" height={150} mt={1} />
+    <SkeletonLoaderComponent variant="text" width="100%" height={50} />
+    <SkeletonLoaderComponent variant="text" width="10%" height={80} />
+  </Box>
+);
 
 const OurStory = () => {
-    return (
-        <Box
-            sx={{
-                paddingTop: '64px',
-                paddingBottom: '64px',
-            }}
+  const { isLoading, data } = useOurStory();
+  const { title, content } = data?.data || {};
+
+  return (
+    <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
+      <Container fixed>
+        <Typography
+          textAlign="center"
+          variant="h4"
+          fontSize="1rem"
+          fontWeight="500"
+          textTransform="uppercase"
         >
-            <Container
-                fixed
-            >
-                <Box
-                    component={'div'}
-                    display="flex"
-                    my={8}
-                    flexDirection="column"
-                    textAlign='center'
-                >
-                    <Typography
-                        variant="h4"
-                        fontSize='1rem'
-                        fontWeight='500'
-                        textTransform='uppercase'
-                    >
-                        Our Story
-                    </Typography>
+          Our Story
+        </Typography>
 
-                    <Typography
-                        variant="h3"
-                        fontWeight='700'
-                        mt={4}
-                    >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit
-                    </Typography>
+        {isLoading ? (
+          <LoadingComponent />
+        ) : (
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            textAlign="center"
+            // my={8}
+          >
+            <>
+              <Typography variant="h3" fontWeight="700" mt={4}>
+                {title}
+              </Typography>
+              <Typography variant="h6" fontWeight="500" mt={4}>
+                {content}
+              </Typography>
+            </>
 
-                    <Typography
-                        variant="h6"
-                        fontWeight='500'
-                        mt={4}
-                    >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto autem obcaecati error aliquam quo, et fugiat dolorem pariatur repellendus soluta culpa labore ex! Facere magnam et natus ex corporis! Provident?
-                    </Typography>
+            <Box mt={4}>
+              <ButtonComponent
+                label="Contact us"
+                variant="outlined"
+                size="large"
+              />
+            </Box>
+          </Box>
+        )}
+      </Container>
+    </Box>
+  );
+};
 
-
-                    <Box mt={4}>
-                        <ButtonComponent
-                            label='Contact us'
-                            variant='outlined'
-                            size='large'
-                        />
-                    </Box>
-
-                </Box>
-            </Container>
-
-        </Box>
-    )
-}
-
-export default OurStory
+export default OurStory;

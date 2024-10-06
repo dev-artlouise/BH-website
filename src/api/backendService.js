@@ -100,3 +100,15 @@ export const fetchMissionVision = async (/*token*/) => {
   if (!response.ok) throw new Error("Failed to fetch mission and vision data");
   return response.json();
 };
+
+export const fetchOurStory = async (/*token*/) => {
+  const response = await fetch(`${API_URL}/ourstory`, {});
+  if (!response.ok) throw new Error("Failed to fetch our story");
+  return response.json();
+};
+
+export const fetchTeam = async (/*token*/) => {
+  const response = await fetch(`${API_URL}/ourteam`, {});
+  if (!response.ok) throw new Error("Failed to fetch our team");
+  return response.json();
+};
