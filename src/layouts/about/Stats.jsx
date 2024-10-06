@@ -1,60 +1,80 @@
-import { Box, Grid, Typography } from "@mui/material"
-import { useEffect } from "react"
+import { Box, Grid, Typography } from "@mui/material";
+import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
+import { useStats } from "../../hooks/useAboutPage";
 
-const Stats = ({ data }) => {
+const LoadingStats = () => (
+  <Box
+    sx={{
+      padding: "16px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    <SkeletonLoaderComponent
+      variant="text"
+      width="80%"
+      height={30}
+      marginTop={1}
+    />
+    <SkeletonLoaderComponent
+      variant="text"
+      width="80%"
+      height={20}
+      marginTop={1}
+    />
+  </Box>
+);
 
-    // useEffect(() => {
-    //     console.log(data)
-    // }, [])
+const StatItem = ({ isLoading, value, label }) => (
+  <Grid item xs={12} sm={4}>
+    {isLoading ? (
+      <LoadingStats />
+    ) : (
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        height="100%"
+        my={5}
+      >
+        <Typography variant="h3" fontWeight="500" mb={2}>
+          {value}
+        </Typography>
+        <Typography variant="body1">{label}</Typography>
+      </Box>
+    )}
+  </Grid>
+);
 
-    return (
+const Stats = () => {
+  const { isLoading, data } = useStats();
+  const { year_in_business, satisfied_customer, project_delivered } =
+    data?.data || {};
 
-        <Box
-            sx={{
-                // paddingTop: '64px'
-            }}
-        >
-            <Box
-                component='div'
-            >
-                <Grid container spacing={2} >
-                    {data.map(({ label, value }, index) => (
-                        <Grid item xs={12} sm={4} key={index}>
-                            <Box display="flex"
-                                flexDirection='column'
-                                justifyContent="center"
-                                alignItems="center"
-                                height="100%"
-                                my={5}
-                            >
-                                <Typography
-                                    variant="h3"
-                                    fontWeight='500'
-                                    mb={2}
-                                >
-                                    {value}
-                                </Typography>
-                                <Typography
-                                    variant="body1"
-                                >
-                                    {label}
-                                </Typography>
-                            </Box>
-                        </Grid>
-                    ))}
+  return (
+    <Box>
+      <Grid container spacing={2}>
+        <StatItem
+          isLoading={isLoading}
+          value={year_in_business}
+          label="Years in Business"
+        />
+        <StatItem
+          isLoading={isLoading}
+          value={project_delivered}
+          label="Projects Delivered"
+        />
+        <StatItem
+          isLoading={isLoading}
+          value={satisfied_customer}
+          label="Satisfied Customers"
+        />
+      </Grid>
+    </Box>
+  );
+};
 
-                    {/* <Grid item xs={12} sm={4}>
-                        <Box
-                            my={5}
-                        >
-                            <hr />
-                        </Box>
-                    </Grid> */}
-                </Grid>
-            </Box>
-
-        </Box>
-    )
-}
-
-export default Stats
+export default Stats;
