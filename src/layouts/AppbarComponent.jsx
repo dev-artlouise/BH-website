@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { AppBar, Container, Toolbar, Box, Button } from "@mui/material";
 import SideDrawer from "../components/common/SideDrawer";
 import { Link as RouterLink } from "react-router-dom";
-import logo from "../assets/bh-logo.jpg";
+import logo from "../assets/bh-logo.png";
 
 const AppbarComponent = () => {
   const [scrolling, setScrolling] = useState(false);

@@ -73,8 +73,7 @@ const Hero = () => {
   return (
     <Box
       sx={{
-        background:
-          "linear-gradient(rgb(243, 246, 255) 0%, rgb(255, 255, 255) 100%)",
+        // background:"linear-gradient(rgb(243, 246, 255) 0%, rgb(255, 255, 255) 100%)",
         position: "relative",
       }}
     >
