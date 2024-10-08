@@ -91,11 +91,12 @@ const Hero = () => {
             <Grid
               container
               spacing={2}
-              alignItems="center"
-              justifyContent="center"
+              alignItems="center" // Vertically center the content
+              justifyContent="center" // Horizontally center the content
+              sx={{ minHeight: "100vh" }} // Optional: makes sure the container fills the full viewport height
             >
               {/* Text Section */}
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12}>
                 <motion.div
                   variants={textVariants}
                   initial="initial"
@@ -107,7 +108,7 @@ const Hero = () => {
                       component="h2"
                       sx={{
                         fontWeight: 700,
-                        textAlign: { xs: "center", md: "left" },
+                        textAlign: 'center',
                         fontSize: {
                           xs: "38px",
                           sm: "42px",
@@ -116,7 +117,8 @@ const Hero = () => {
                         },
                       }}
                     >
-                      {title}
+                      {/* {title} */}
+                      From Ideas to Loved Products
                     </Typography>
                   </Box>
 
@@ -128,11 +130,12 @@ const Hero = () => {
                       lineHeight={1.6}
                       sx={{
                         fontWeight: 500,
-                        textAlign: { xs: "center", md: "left" },
+                        textAlign: 'center',
                         fontSize: { xs: "18px", lg: "20px" },
                       }}
                     >
-                      {content}
+                      We bring your ideas to life and Build products people love
+                      {/* {content} */}
                     </Typography>
                   </Box>
 
@@ -142,12 +145,12 @@ const Hero = () => {
                       justifyContent: { xs: "center", md: "left" },
                     }}
                   >
-                    <ButtonComponent
+                    {/* <ButtonComponent
                       variant="contained"
                       size="large"
                       label="Get in touch"
                       fullWidth={smallScreen}
-                    />
+                    /> */}
                   </Box>
                 </motion.div>
               </Grid>
@@ -159,7 +162,7 @@ const Hero = () => {
                 md={6}
                 sx={{ paddingLeft: "32px", paddingTop: "32px" }}
               >
-                <motion.div
+                {/* <motion.div
                   variants={image}
                   initial="initial"
                   animate="animate"
@@ -177,7 +180,7 @@ const Hero = () => {
                       style={{ width: "100%", height: "auto" }}
                     />
                   </Box>
-                </motion.div>
+                </motion.div> */}
               </Grid>
             </Grid>
           </Box>

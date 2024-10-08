@@ -47,7 +47,13 @@ const Process = () => {
     <Box sx={{ position: "relative" }}>
       <Container fixed>
         <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
-          <Grid container spacing={2}>
+          <Grid
+            container
+            spacing={2}
+            alignItems="center"
+            justifyContent="center"
+            sx={{ minHeight: "70vh" }}
+          >
             <Grid item xs={12} md={6}>
               <Box
                 sx={{
