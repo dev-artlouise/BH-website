@@ -19,7 +19,7 @@ const PaperCardComponent = ({ title, description, alignItems, textAlign, icon, a
                     }}
                 >
 
-                    <Avatar
+                    {/* <Avatar
                         variant="rounded"
                         sx={{
                             position: 'relative',
@@ -36,7 +36,7 @@ const PaperCardComponent = ({ title, description, alignItems, textAlign, icon, a
                             width={avatarWidth}
                             height={avatarHeight}
                         /> */}
-                    </Avatar>
+                    {/* </Avatar> */}
 
                     <Typography
                         variant='h6'

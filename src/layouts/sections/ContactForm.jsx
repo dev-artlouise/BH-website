@@ -5,7 +5,15 @@ import TextFieldComponent from '../../components/common/TextFieldComponent'
 
 const Contact = () => {
     return (
-        <Box>
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: "100vh"
+            }}
+        >
             <Container
                 fixed
             >
@@ -13,6 +21,7 @@ const Contact = () => {
                     sx={{
                         paddingTop: '64px',
                         paddingBottom: '64px',
+
                     }}
                 >
                     <Box>

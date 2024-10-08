@@ -1,6 +1,6 @@
-import { Card, CardMedia, CardContent, CardActions } from "@mui/material"
+import { Card, CardMedia, CardContent, CardActions, CardActionArea } from "@mui/material"
 
-const CardComponent = ({ image, title, cardContent, cardActions }) => {
+const CardComponent = ({ image, title, cardContent, cardActions, onClick }) => {
     return (
         <>
             <Card
@@ -9,32 +9,37 @@ const CardComponent = ({ image, title, cardContent, cardActions }) => {
                     borderRadius: '12px',
                 }}
             >
-                <CardMedia
-                    component={'img'}
-                    image={image}
-                    title={title}
-                    sx={{
-                        display: 'block',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center center',
-                        height: '250px',
-                    }}
-                />
-                <CardContent
-                    sx={{
-                        padding: '1rem'
-                    }}
+                <CardActionArea
+                    onClick={onClick}
                 >
-                    {cardContent}
-                </CardContent>
-                <CardActions
-                    sx={{
-                        marginBottom: '12px'
-                    }}
-                >
-                    {cardActions}
-                </CardActions>
+                    <CardMedia
+                        component={'img'}
+                        image={image}
+                        title={title}
+                        sx={{
+                            display: 'block',
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center center',
+                            height: '400px',
+                        }}
+                    />
+                    <CardContent
+                        sx={{
+                            padding: '1rem'
+                        }}
+                    >
+                        {cardContent}
+                    </CardContent>
+                    {/* <CardActions
+                        sx={{
+                            marginBottom: '12px'
+                        }}
+                    >
+                        {cardActions}
+                    </CardActions> */}
+                </CardActionArea>
+
             </Card>
         </>
     )
