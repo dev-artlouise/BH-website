@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Companies />
+      {/* <Companies /> */}
       <Services />
       <Process />
       <Projects />

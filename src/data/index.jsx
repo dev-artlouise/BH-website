@@ -88,49 +88,49 @@ export const services = [
   {
     id: 1,
     title: "Premium Products",
-    description:
+    content:
       "We offer a wide range of high - quality computer products from trusted brands, ensuring durability and reliability.",
   },
 
   {
     id: 2,
     title: "Extended Warranties",
-    description:
+    content:
       "Enjoy peace of mind with our extended warranties and comprehensive service plans.",
   },
 
   {
     id: 3,
     title: "Best Prices",
-    description:
+    content:
       "We offer competitive pricing on all our computer products without compromising on quality.",
   },
 
   {
     id: 4,
     title: "After-Sales Support",
-    description:
+    content:
       " Our dedicated after - sales support team is available to assist you with any issues or questions you may have.",
   },
 
   {
     id: 5,
     title: "Latest Technology",
-    description:
+    content:
       "Stay ahead with the latest and most innovative technology available on the market.",
   },
 
   {
     id: 6,
     title: "Custom Solutions",
-    description:
+    content:
       "We provide custom - built computers and configurations to suit your specific needs.",
   },
 
   {
     id: 7,
     title: "Comprehensive Support",
-    description:
+    content:
       " From setup to troubleshooting, we offer comprehensive support to ensure you get the most out of your products.",
   },
 ];
@@ -138,22 +138,22 @@ export const services = [
 export const process = [
   {
     id: 1,
-    name: "Idea",
-    description:
+    title: "Idea",
+    content:
       "We start by meeting with your team to understand your project idea and objectives. Following this, our team collaborates to develop an action plan and proposal for your project.",
     icon: <Lightbulb height={48} width={48} />,
   },
   {
     id: 2,
-    name: "Design",
-    description:
+    title: "Design",
+    content:
       "We begin by creating a mockup or prototype of your website and presenting it to you. With the initial mockup in hand, we then initiate the revision process to refine and perfect it.",
     icon: <SlidersVertical height={48} width={48} />,
   },
   {
     id: 3,
-    name: "Development",
-    description:
+    title: "Development",
+    content:
       "We build your website following the best practices and standards to ensure it is fully responsive, incredibly fast, SEO-friendly, and highly scalable.",
     icon: <SquareTerminal height={48} width={48} />,
   },
@@ -163,36 +163,36 @@ export const projects = [
   {
     id: 1,
     title: "Project 1",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error",
-    image: "https://via.placeholder.com/150",
+    image_url: "https://via.placeholder.com/150",
     category: "Web",
   },
 
   {
     id: 2,
     title: "Project 2",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error",
-    image: "https://via.placeholder.com/150",
+    image_url: "https://via.placeholder.com/150",
     category: "Mobile",
   },
 
   {
     id: 3,
     title: "Project 3",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error",
-    image: "https://via.placeholder.com/150",
+    image_url: "https://via.placeholder.com/150",
     category: "Web",
   },
 
   {
     id: 4,
     title: "Project 4",
-    description:
+    content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem error",
-    image: "https://via.placeholder.com/150",
+    image_url: "https://via.placeholder.com/150",
     category: "Mobile",
   },
 ];
