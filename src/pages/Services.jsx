@@ -37,7 +37,7 @@ const Services = () => {
         <OurServices />
         <WhatWeDo />
         <WorkWithUs />
-        <SeenOn data={companies} />
+        {/* <SeenOn data={companies} /> */}
         <Process data={process} />
 
         <Box
