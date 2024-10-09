@@ -37,7 +37,12 @@ const Mission = ({ data, isLoading }) => (
         textAlign="center"
         gutterBottom
       >
-        {data}
+        To supply high-quality computer products and exceptional customer
+        service, empowering individuals and businesses with the latest
+        technology to achieve their goals. We are committed to innovation,
+        reliability, and fostering long-term relationships with our customers
+        through trust and excellence.
+        {/* {data} */}
       </Typography>
     )}
   </Box>

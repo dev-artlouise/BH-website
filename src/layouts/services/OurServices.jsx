@@ -26,22 +26,23 @@ const Services = () => {
             </Typography>
 
             <Typography variant="h3" gutterBottom fontWeight="700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Our Software Solutions
             </Typography>
 
             <Typography variant="h6" component="p">
-              Ipsa labore saepe ducimus eum laudantium, aperiam libero rem
-              minima! Dolor sunt explicabo dicta distinctio molestiae nemo
-              officia aliquam, quibusdam expedita consequuntur!
+              Explore our comprehensive suite of cutting-edge software solutions
+              designed to optimize your business processes, boost efficiency,
+              and drive growth. We offer tailored solutions to meet the unique
+              needs of your organization.
             </Typography>
 
-            <Box marginTop={3} display="flex" justifyContent="center">
+            {/* <Box marginTop={3} display="flex" justifyContent="center">
               <ButtonComponent
                 label="Contact us"
                 variant="contained"
                 size="large"
               />
-            </Box>
+            </Box> */}
           </Box>
 
           {/* Services Image Section */}

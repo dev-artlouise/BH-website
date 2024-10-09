@@ -36,7 +36,34 @@ const OurStory = () => {
           Our Story
         </Typography>
 
-        {isLoading ? (
+        <Typography mt={4} variant="h6" alignItems="center" textAlign="center">
+          BroadHeader's journey began just a short time ago, fueled by a passion
+          for technology and a vision to empower businesses. Founded by a group
+          of driven engineers and entrepreneurs, we set out to create innovative
+          software solutions that tackle real-world challenges head-on.
+        </Typography>
+
+        <Typography mt={4} variant="h6" alignItems="center" textAlign="center">
+          In our first years, we've focused on building a strong foundation,
+          driven by a commitment to excellence and client satisfaction. We
+          believe in the transformative power of technology and its ability to
+          help businesses reach new heights of success.
+        </Typography>
+
+        <Typography mt={4} variant="h6" alignItems="center" textAlign="center">
+          Though we're a young company, we're already making a difference. We're
+          proud of the relationships we've built and the positive impact we've
+          had on our clients.
+        </Typography>
+
+        <Typography mt={4} variant="h6" alignItems="center" textAlign="center">
+          Looking ahead, BroadHeader is committed to continuous innovation and
+          growth. We're excited to expand our reach and empower even more
+          businesses with cutting-edge software solutions that drive progress
+          and unlock their full potential.
+        </Typography>
+
+        {/* {isLoading ? (
           <LoadingComponent />
         ) : (
           <Box
@@ -63,7 +90,7 @@ const OurStory = () => {
               />
             </Box>
           </Box>
-        )}
+        )} */}
       </Container>
     </Box>
   );
