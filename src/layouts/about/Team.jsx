@@ -2,6 +2,8 @@ import { Box, Grid, Paper, Typography, Avatar, Container } from "@mui/material";
 import { useTeam } from "../../hooks/useAboutPage";
 import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
 
+import { team } from "../../data";
+
 const LoadingComponent = () => (
   <Box sx={{ marginTop: "2rem" }}>
     <Grid container spacing={2}>
@@ -43,8 +45,8 @@ const LoadingComponent = () => (
 );
 
 const Team = () => {
-  const { isLoading, data } = useTeam();
-  const team = data?.data;
+  // const { isLoading, data } = useTeam();
+  // const team = data?.data;
 
   return (
     <Box display="flex" flexDirection="column" textAlign="center" my={8}>
@@ -58,7 +60,7 @@ const Team = () => {
       </Typography>
 
       <Container>
-        {isLoading ? (
+        {/* {isLoading ? (
           <LoadingComponent />
         ) : (
           <Box my={5}>
@@ -94,7 +96,41 @@ const Team = () => {
               ))}
             </Grid>
           </Box>
-        )}
+        )} */}
+
+        <Box my={5}>
+          <Grid container spacing={4}>
+            {team?.map(({ avatar, fullname, position, message }, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Paper
+                  elevation={3}
+                  sx={{ height: "365px", borderRadius: "12px" }}
+                >
+                  <Box p={3}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <Avatar
+                        src={avatar}
+                        alt={fullname}
+                        sx={{ width: 80, height: 80 }}
+                      />
+                    </Box>
+                    <Box mt={3} textAlign="start">
+                      <Box my={1}>
+                        <Typography variant="body1">{fullname}</Typography>
+                        <Typography variant="body2">{position}</Typography>
+                      </Box>
+                      <Typography variant="body2">"{message}"</Typography>
+                    </Box>
+                  </Box>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
       </Container>
     </Box>
   );

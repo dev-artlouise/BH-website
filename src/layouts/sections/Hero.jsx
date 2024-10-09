@@ -78,7 +78,6 @@ const Hero = () => {
       }}
     >
       <Container>
-
         <Box
           sx={{
             maxWidth: "1236px",
@@ -107,7 +106,7 @@ const Hero = () => {
                     component="h2"
                     sx={{
                       fontWeight: 700,
-                      textAlign: 'center',
+                      textAlign: "center",
                       fontSize: {
                         xs: "38px",
                         sm: "42px",
@@ -129,7 +128,7 @@ const Hero = () => {
                     lineHeight={1.6}
                     sx={{
                       fontWeight: 500,
-                      textAlign: 'center',
+                      textAlign: "center",
                       fontSize: { xs: "18px", lg: "20px" },
                     }}
                   >
@@ -183,7 +182,6 @@ const Hero = () => {
             </Grid>
           </Grid>
         </Box>
-
       </Container>
     </Box>
   );

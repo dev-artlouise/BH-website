@@ -49,7 +49,8 @@ const Introduction = () => {
             textAlign="center"
             gutterBottom
           >
-            {title}
+            {/* {title} */}
+            From Ideas to Loved Products
           </Typography>
 
           <Typography
@@ -59,16 +60,17 @@ const Introduction = () => {
             textAlign="center"
             gutterBottom
           >
-            {content}
+            {/* {content} */}
+            We bring your ideas to life and Build products people love
           </Typography>
 
-          <Box display="flex" justifyContent="center">
+          {/* <Box display="flex" justifyContent="center">
             <ButtonComponent
               label="Contact us"
               variant="contained"
               size="large"
             />
-          </Box>
+          </Box> */}
         </>
       )}
     </Box>

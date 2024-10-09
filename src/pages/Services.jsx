@@ -1,3 +1,7 @@
+import { useState, useEffect } from "react";
+
+import { Link as RouterLink } from "react-router-dom";
+
 import {
   Container,
   Box,
@@ -6,6 +10,7 @@ import {
   Avatar,
   Grid,
   CardContent,
+  Button,
 } from "@mui/material";
 import {
   Monitor,
@@ -27,16 +32,56 @@ import WorkWithUs from "../layouts/sections/WorkWithUs";
 import Process from "../layouts/home/Process";
 import SeenOn from "../layouts/services/SeenOn";
 
+import ServicesLayout from "../layouts/home/Services";
+
 import { companies, process } from "../data";
 
 const Services = () => {
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolling(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const buttonStyles = {
+    my: 2,
+    display: "block",
+    textTransform: "capitalize",
+    fontSize: "18px",
+    color: scrolling ? "black" : "white",
+  };
+
+  const contactButtonStyles = {
+    ...buttonStyles,
+    width: {
+      xs: "100%", // Full width on extra-small screens
+      sm: "100%", // Full width on small screens
+      md: "15%", // 25% width on medium and larger screens},
+    },
+    borderRadius: "9999px",
+    borderWidth: "2px",
+    borderStyle: "solid",
+    padding: ".75rem 2.5rem",
+    fontSize: "1.125rem",
+    lineHeight: "1.75rem",
+    borderColor: scrolling ? "black" : "lightgray",
+    backgroundColor: "transparent",
+    "&:hover": {
+      color: scrolling ? "white" : "black",
+      backgroundColor: scrolling ? "black" : "lightgray",
+    },
+  };
+
   return (
     <>
       {/* <Container> */}
       <Box>
         <OurServices />
         <WhatWeDo />
-        <WorkWithUs />
+        {/* <WorkWithUs /> */}
+        <ServicesLayout />
         {/* <SeenOn data={companies} /> */}
         <Process data={process} />
 
@@ -58,12 +103,24 @@ const Services = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                flexDirection: { xs: "column", sm: "row" }, // Responsive flex direction
+                flexDirection: { xs: "column" }, // Responsive flex direction
               }}
             >
               <Typography variant="h6" component="h6">
                 Have an idea to discuss ?
               </Typography>
+
+              {/* <Button
+                LinkComponent={RouterLink}
+                to="/contact-us"
+                size="large"
+                sx={contactButtonStyles}
+              >
+                About us
+                <Box component={"span"} ml={2}>
+                  >
+                </Box>
+              </Button>
 
               <Box
                 sx={{
@@ -76,13 +133,7 @@ const Services = () => {
                     sm: "0px",
                   },
                 }}
-              >
-                <ButtonComponent
-                  label="Contact us"
-                  variant="contained"
-                  size="large"
-                />
-              </Box>
+              ></Box> */}
             </Box>
           </Box>
         </Box>

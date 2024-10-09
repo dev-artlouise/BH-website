@@ -37,7 +37,12 @@ const Vision = ({ data, isLoading }) => (
         textAlign="center"
         gutterBottom
       >
-        {data}
+        {/* {data} */}
+        To be the leading provider of cutting-edge computer products, recognized
+        for our commitment to quality, customer satisfaction, and technological
+        innovation. We aspire to create a world where technology seamlessly
+        enhances everyday life and business operations, driving progress and
+        growth for all our customers.
       </Typography>
     )}
   </Box>

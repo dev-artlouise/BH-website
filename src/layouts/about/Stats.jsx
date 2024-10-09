@@ -59,17 +59,20 @@ const Stats = () => {
       <Grid container spacing={2}>
         <StatItem
           isLoading={isLoading}
-          value={year_in_business}
+          value={"7"}
+          // value={year_in_business}
           label="Years in Business"
         />
         <StatItem
           isLoading={isLoading}
-          value={project_delivered}
+          value={"150"}
+          // value={project_delivered}
           label="Projects Delivered"
         />
         <StatItem
           isLoading={isLoading}
-          value={satisfied_customer}
+          value={"99"}
+          // value={satisfied_customer}
           label="Satisfied Customers"
         />
       </Grid>

@@ -20,10 +20,14 @@ const About = () => {
     <>
       <Box
         sx={{
-          background: "#f3f6ff",
+          // background: "#f3f6ff",
           position: "relative",
-          paddingTop: "64px",
-          paddingBottom: "64px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          // paddingTop: "64px",
+          // paddingBottom: "64px",
+          minHeight: "100vh",
         }}
       >
         <Container fixed>
@@ -41,7 +45,13 @@ const About = () => {
         }}
       >
         <Container fixed>
-          <Grid container spacing={8}>
+          <Grid
+            container
+            spacing={8}
+            alignItems="center"
+            justifyContent="center"
+            sx={{ minHeight: "50vh" }}
+          >
             {/* Mission */}
             <Grid item xs={12} sm={6}>
               <Mission isLoading={isLoading} data={mission} />
@@ -55,8 +65,8 @@ const About = () => {
         </Container>
       </Box>
 
-      {/* <Services /> */}
-      <WorkWithUs />
+      <Services />
+      {/* <WorkWithUs /> */}
       <OurStory />
       <Team />
     </>

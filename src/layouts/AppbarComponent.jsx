@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { AppBar, Container, Toolbar, Box, Button } from "@mui/material";
 import SideDrawer from "../components/common/SideDrawer";
 import { Link as RouterLink } from "react-router-dom";
+
 import logo from "../assets/bh-logo.png";
+import logoReverse from "../assets/bh-logo-reverse.png";
 
 const AppbarComponent = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -70,12 +72,21 @@ const AppbarComponent = () => {
             to="/"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            <Box
-              component="img"
-              src={logo}
-              alt="BH-logo"
-              sx={{ height: 60, marginRight: "1rem", borderRadius: "3px" }}
-            />
+            {scrolling ? (
+              <Box
+                component="img"
+                src={logoReverse}
+                alt="BH-logo"
+                sx={{ height: 60, marginRight: "1rem", borderRadius: "3px" }}
+              />
+            ) : (
+              <Box
+                component="img"
+                src={logo}
+                alt="BH-logo"
+                sx={{ height: 60, marginRight: "1rem", borderRadius: "3px" }}
+              />
+            )}
           </Box>
 
           {/* Mobile Menu (Side Drawer) */}
@@ -116,10 +127,7 @@ const AppbarComponent = () => {
               sx={contactButtonStyles}
             >
               Contact Us
-              <Box
-                component={'span'}
-                ml={2}
-              > 
+              <Box component={"span"} ml={2}>
                 >
               </Box>
             </Button>
