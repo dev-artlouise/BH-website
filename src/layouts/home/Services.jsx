@@ -6,7 +6,7 @@ import {
   Grid,
   Paper,
   CardContent,
-  Button
+  Button,
 } from "@mui/material";
 import CarouselComponent from "../../components/common/CarouselComponent";
 import PaperCardComponent from "../../components/common/PaperCardComponent";
@@ -52,9 +52,9 @@ const Services = () => {
   const contactButtonStyles = {
     ...buttonStyles,
     width: {
-      xs: '100%', // Full width on extra-small screens
-      sm: '100%', // Full width on small screens
-      md: '25%',  // 25% width on medium and larger screens},
+      xs: "100%", // Full width on extra-small screens
+      sm: "100%", // Full width on small screens
+      md: "25%", // 25% width on medium and larger screens},
     },
     borderRadius: "9999px",
     borderWidth: "2px",
@@ -84,8 +84,18 @@ const Services = () => {
                 }}
               >
                 <SkeletonLoaderComponent variant="rounded" height={150} />
-                <SkeletonLoaderComponent variant="text" width="80%" height={30} marginTop={1} />
-                <SkeletonLoaderComponent variant="text" width="60%" height={20} marginTop={1} />
+                <SkeletonLoaderComponent
+                  variant="text"
+                  width="80%"
+                  height={30}
+                  marginTop={1}
+                />
+                <SkeletonLoaderComponent
+                  variant="text"
+                  width="60%"
+                  height={20}
+                  marginTop={1}
+                />
               </CardContent>
             </Paper>
           </Grid>
@@ -96,29 +106,49 @@ const Services = () => {
 
   const LoadingServiceContent = () => (
     <Box>
-      <SkeletonLoaderComponent variant="text" width="80%" height={100} marginTop={1} />
-      <SkeletonLoaderComponent variant="text" width="40%" height={50} marginTop={1} />
+      <SkeletonLoaderComponent
+        variant="text"
+        width="80%"
+        height={100}
+        marginTop={1}
+      />
+      <SkeletonLoaderComponent
+        variant="text"
+        width="40%"
+        height={50}
+        marginTop={1}
+      />
     </Box>
   );
 
   const ServiceContent = ({ title, description }) => (
     <Box
       sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        textAlign: 'center',
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        textAlign: "center",
       }}
     >
-      <Typography variant="body1" fontWeight="500" textTransform="uppercase" gutterBottom>
+      <Typography
+        variant="body1"
+        fontWeight="500"
+        textTransform="uppercase"
+        gutterBottom
+      >
         {/* Services */}
       </Typography>
       <Typography variant="h3" fontWeight="700" gutterBottom>
         {/* {title} */}
         High-impact design & development services
       </Typography>
-      <Typography variant="body1" fontWeight="500" fontSize="1.2rem" gutterBottom>
+      <Typography
+        variant="body1"
+        fontWeight="500"
+        fontSize="1.2rem"
+        gutterBottom
+      >
         {/* {content} */}
         We take you by hand on each step of the process
       </Typography>
@@ -205,7 +235,10 @@ const Services = () => {
                     slidesToShow={3}
                     slidesToScroll={3}
                     sliderContent={services?.map(({ id, title, content }) => (
-                      <Box key={id} sx={{ mt: 5, padding: "16px", flex: "1 0 auto" }}>
+                      <Box
+                        key={id}
+                        sx={{ mt: 5, padding: "16px", flex: "1 0 auto" }}
+                      >
                         <PaperCardComponent
                           alignItems="center"
                           textAlign="center"
@@ -217,12 +250,12 @@ const Services = () => {
                   />
                   <Box
                     sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexDirection: 'column',
-                      textAlign: 'center',
-                      mt: 5
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                      textAlign: "center",
+                      mt: 5,
                     }}
                   >
                     <Button
@@ -232,11 +265,8 @@ const Services = () => {
                       sx={contactButtonStyles}
                     >
                       About us
-                      <Box
-                        component={'span'}
-                        ml={2}
-                      > 
-                              >
+                      <Box component={"span"} ml={2}>
+                        >
                       </Box>
                     </Button>
                   </Box>
@@ -246,8 +276,8 @@ const Services = () => {
             {/* )} */}
           </Box>
         </Container>
-      </Box >
-    </Box >
+      </Box>
+    </Box>
   );
 };
 
