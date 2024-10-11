@@ -27,7 +27,7 @@ const About = () => {
           justifyContent: "center",
           // paddingTop: "64px",
           // paddingBottom: "64px",
-          minHeight: "100vh",
+          minHeight: "50vh",
         }}
       >
         <Container fixed>
@@ -67,8 +67,17 @@ const About = () => {
 
       <Services />
       {/* <WorkWithUs /> */}
-      <OurStory />
-      <Team />
+      <Box
+        sx={{
+          position: "relative",
+          borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
+          boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
+        }}
+      >
+        <OurStory />
+        <Team />
+      </Box >
+
     </>
   );
 };

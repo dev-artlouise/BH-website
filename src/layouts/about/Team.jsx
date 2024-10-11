@@ -101,7 +101,7 @@ const Team = () => {
         <Box my={5}>
           <Grid container spacing={4}>
             {team?.map(({ avatar, fullname, position, message }, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
+              <Grid item xs={12} sm={6} md={4} key={index}>
                 <Paper
                   elevation={3}
                   sx={{ height: "365px", borderRadius: "12px" }}

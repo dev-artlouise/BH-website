@@ -1,9 +1,44 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography, Button } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import FormCardComponent from "../../components/common/FormCardComponent";
 import ButtonComponent from "../../components/common/ButtonComponent";
 import TextFieldComponent from "../../components/common/TextFieldComponent";
 
+import { useState, useEffect } from "react";
+
 const Contact = () => {
+
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolling(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const buttonStyles = {
+    my: 2,
+    textTransform: "capitalize",
+    fontSize: "18px",
+    color: scrolling ? "black" : "white",
+  };
+
+  const contactButtonStyles = {
+    ...buttonStyles,
+    borderRadius: "9999px",
+    borderWidth: "2px",
+    borderStyle: "solid",
+    padding: ".75rem 2.5rem",
+    fontSize: "1.125rem",
+    lineHeight: "1.75rem",
+    borderColor: scrolling ? "black" : "lightgray",
+    backgroundColor: "transparent",
+    "&:hover": {
+      color: scrolling ? "white" : "black",
+      backgroundColor: scrolling ? "black" : "lightgray",
+    },
+  };
+
   return (
     <Box
       sx={{
@@ -113,13 +148,24 @@ const Contact = () => {
                           </Box>
 
                           <Box>
-                            <ButtonComponent
+
+                            <Button
+                              fullWidth
+                              component={RouterLink}
+                              to="/contact-us"
+                              size="large"
+                              sx={contactButtonStyles}
+                            >
+                              Submit
+                            </Button>
+
+                            {/* <ButtonComponent
                               fullWidth={true}
                               label="Submit"
                               size="large"
                               variant="contained"
                               height="54px"
-                            />
+                            /> */}
                           </Box>
 
                           <Box
