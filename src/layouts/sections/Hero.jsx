@@ -1,20 +1,8 @@
-import {
-  Typography,
-  Box,
-  Grid,
-  Container,
-  useTheme,
-  useMediaQuery,
-  CircularProgress,
-} from "@mui/material";
-import ButtonComponent from "../../components/common/ButtonComponent";
+import { Typography, Box, Grid, Container } from "@mui/material";
 import { motion } from "framer-motion";
-import { useHeroSection } from "../../hooks/useMainPage";
 
 const Hero = () => {
   // const { isLoading, error, isFetched, data } = useHeroSection();
-  const theme = useTheme();
-  const smallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   // Destructure data with default values
   // const { image = "", title = "", content = "" } = data?.data || {};

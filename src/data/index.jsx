@@ -227,7 +227,8 @@ export const projects = [
     content:
       "Axtoken is a cryptocurrency website designed to provide a seamless and user-friendly experience for buying, selling, and trading digital assets. Inspired by platforms like Binance, Axtoken offers a comprehensive suite of tools and features for both novice and experienced crypto enthusiasts.",
     image_url: axtoken,
-    category: "Web",
+    technologies: ["React", "Node.js", "MongoDB"],
+    categories: ["Web Development", "UX Design"],
   },
 
   {
@@ -236,7 +237,8 @@ export const projects = [
     content:
       "This portfolio website showcases CarbonZone's exceptional work in car repair and performance upgrades.  It features a gallery of their impressive projects, detailed information about their services, and compelling client testimonials that highlight their expertise in the automotive industry.",
     image_url: carbonzone,
-    category: "Web",
+    technologies: ["Vue", "laravel"],
+    categories: ["Web Development", "UX Design"],
   },
 
   // {
