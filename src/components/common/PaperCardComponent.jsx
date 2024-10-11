@@ -1,25 +1,33 @@
-import { Paper, CardContent, Typography, Avatar } from '@mui/material'
+import { Paper, CardContent, Typography, Avatar } from "@mui/material";
 
-const PaperCardComponent = ({ title, description, alignItems, textAlign, icon, avatarWidth, avatarHeight }) => {
-    return (
-        <>
-            <Paper
-                sx={{
-                    borderRadius: '20px',
-                    paddingBottom: '24px'
-                }}
-            >
-                <CardContent
-                    sx={{
-                        padding: '48px',
-                        paddingBottom: '48px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: alignItems
-                    }}
-                >
-
-                    {/* <Avatar
+const PaperCardComponent = ({
+  title,
+  description,
+  alignItems,
+  textAlign,
+  icon,
+  avatarWidth,
+  avatarHeight,
+}) => {
+  return (
+    <>
+      <Paper
+        sx={{
+          borderRadius: "20px",
+          paddingBottom: "24px",
+          height: "250px",
+        }}
+      >
+        <CardContent
+          sx={{
+            padding: "48px",
+            paddingBottom: "48px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: alignItems,
+          }}
+        >
+          {/* <Avatar
                         variant="rounded"
                         sx={{
                             position: 'relative',
@@ -36,29 +44,24 @@ const PaperCardComponent = ({ title, description, alignItems, textAlign, icon, a
                             width={avatarWidth}
                             height={avatarHeight}
                         /> */}
-                    {/* </Avatar> */}
+          {/* </Avatar> */}
 
-                    <Typography
-                        variant='h6'
-                        textAlign={textAlign}
-                        fontWeight='500'
-                        gutterBottom
-                    >
-                        {title}
-                    </Typography>
+          <Typography
+            variant="h6"
+            textAlign={textAlign}
+            fontWeight="500"
+            gutterBottom
+          >
+            {title}
+          </Typography>
 
-                    <Typography
-                        variant='body1'
-                        component='p'
-                        textAlign={textAlign}
-                    >
-                        {description}
-                    </Typography>
+          <Typography variant="body1" component="p" textAlign={textAlign}>
+            {description}
+          </Typography>
+        </CardContent>
+      </Paper>
+    </>
+  );
+};
 
-                </CardContent>
-            </Paper>
-        </>
-    )
-}
-
-export default PaperCardComponent
+export default PaperCardComponent;
