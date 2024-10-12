@@ -24,7 +24,7 @@ import {
 
 import ButtonComponent from "../components/common/ButtonComponent";
 
-import ImageDiscuss from "../assets/services.png";
+import ImageDiscuss from "../assets/services.jpg";
 
 import OurServices from "../layouts/services/OurServices";
 import WhatWeDo from "../layouts/services/WhatWeDo";

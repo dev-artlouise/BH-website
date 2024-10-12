@@ -158,7 +158,8 @@ const Services = () => {
   return (
     <Box
       sx={{
-        marginTop: "-28px",
+        minHeight: "100vh",
+        marginTop: "-40px",
         background: "#f3f6ff",
         position: "relative",
         borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides

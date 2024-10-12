@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import ButtonComponent from "../../components/common/ButtonComponent";
 
-import ImageDiscuss from "../../assets/services.png";
+import ImageDiscuss from "../../assets/services.jpg";
 
 const Services = () => {
   return (

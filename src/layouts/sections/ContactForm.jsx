@@ -7,7 +7,6 @@ import TextFieldComponent from "../../components/common/TextFieldComponent";
 import { useState, useEffect } from "react";
 
 const Contact = () => {
-
   const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
@@ -148,7 +147,6 @@ const Contact = () => {
                           </Box>
 
                           <Box>
-
                             <Button
                               fullWidth
                               component={RouterLink}

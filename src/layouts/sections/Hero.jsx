@@ -1,6 +1,8 @@
 import { Typography, Box, Grid, Container } from "@mui/material";
 import { motion } from "framer-motion";
 
+import bg from "../../assets/bg-1.jpg";
+
 const Hero = () => {
   // const { isLoading, error, isFetched, data } = useHeroSection();
 
@@ -61,8 +63,17 @@ const Hero = () => {
   return (
     <Box
       sx={{
-        // background:"linear-gradient(rgb(243, 246, 255) 0%, rgb(255, 255, 255) 100%)",
+        marginTop: {
+          sm: "-36%",
+          md: "-7.1%",
+        },
+        backgroundImage: `url(${bg})`, // Replace with your image URL
+        backgroundSize: "cover", // Ensures the image covers the entire background
+        backgroundPosition: "center", // Centers the image
+        backgroundRepeat: "no-repeat", // Prevents the image from repeating
         position: "relative",
+        marginBottom: "20px",
+        minHeight: "100vh", // Optional: to ensure the section has enough height
       }}
     >
       <Container>
