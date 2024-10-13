@@ -2,29 +2,7 @@ import { useState, useEffect } from "react";
 
 import { Link as RouterLink } from "react-router-dom";
 
-import {
-  Container,
-  Box,
-  Typography,
-  Card,
-  Avatar,
-  Grid,
-  CardContent,
-  Button,
-} from "@mui/material";
-import {
-  Monitor,
-  Component,
-  Smartphone,
-  SearchCheck,
-  Lightbulb,
-  SlidersVertical,
-  SquareTerminal,
-} from "lucide-react";
-
-import ButtonComponent from "../components/common/ButtonComponent";
-
-import ImageDiscuss from "../assets/services.jpg";
+import { Box, Typography } from "@mui/material";
 
 import OurServices from "../layouts/services/OurServices";
 import WhatWeDo from "../layouts/services/WhatWeDo";

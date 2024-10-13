@@ -41,7 +41,8 @@ const Contact = () => {
   return (
     <Box
       sx={{
-        // marginTop: "-28px",
+        marginTop: "-28px",
+        background: "#fff",
         borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
         boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
         display: "flex",
@@ -49,8 +50,6 @@ const Contact = () => {
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
-        borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
-        boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
         zIndex: "20",
         minHeight: "100vh",
       }}

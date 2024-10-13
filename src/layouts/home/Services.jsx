@@ -7,6 +7,7 @@ import {
   Paper,
   CardContent,
   Button,
+  Grow,
 } from "@mui/material";
 import CarouselComponent from "../../components/common/CarouselComponent";
 import PaperCardComponent from "../../components/common/PaperCardComponent";
@@ -52,9 +53,9 @@ const Services = () => {
   const contactButtonStyles = {
     ...buttonStyles,
     width: {
-      xs: "100%", // Full width on extra-small screens
-      sm: "100%", // Full width on small screens
-      md: "25%", // 25% width on medium and larger screens},
+      xs: "100%",
+      sm: "100%",
+      md: "25%",
     },
     borderRadius: "9999px",
     borderWidth: "2px",
@@ -158,8 +159,8 @@ const Services = () => {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
-        marginTop: "-40px",
+        // minHeight: "100vh",
+        marginTop: "-28px",
         background: "#f3f6ff",
         position: "relative",
         borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
@@ -177,7 +178,7 @@ const Services = () => {
               spacing={2}
               alignItems="center"
               justifyContent="center"
-              sx={{ minHeight: "100vh" }}
+              sx={{ minHeight: "110vh" }}
             >
               <Grid item xs={12} sm={10}>
                 {/* <ServiceContent title={title} content={content} /> */}
@@ -240,12 +241,14 @@ const Services = () => {
                         key={id}
                         sx={{ mt: 5, padding: "16px", flex: "1 0 auto" }}
                       >
-                        <PaperCardComponent
-                          alignItems="center"
-                          textAlign="center"
-                          title={title}
-                          description={content}
-                        />
+                        <Grow>
+                          <PaperCardComponent
+                            alignItems="center"
+                            textAlign="center"
+                            title={title}
+                            description={content}
+                          />
+                        </Grow>
                       </Box>
                     ))}
                   />

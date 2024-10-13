@@ -11,7 +11,6 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 const Home = () => {
   return (
     <>
-      <Hero />
       <Services />
       <Process />
       <Projects />

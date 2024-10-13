@@ -1,15 +1,8 @@
 import { Typography, Box, Grid, Container } from "@mui/material";
 import { motion } from "framer-motion";
-
-import bg from "../../assets/bg-1.jpg";
-
 const Hero = () => {
-  // const { isLoading, error, isFetched, data } = useHeroSection();
-
-  // Destructure data with default values
-  // const { image = "", title = "", content = "" } = data?.data || {};
-
-  const textVariants = {
+  // Animation Variants
+  const textAnimation = {
     initial: { x: -500, opacity: 0 },
     animate: {
       x: 0,
@@ -18,166 +11,67 @@ const Hero = () => {
     },
   };
 
-  // New image animation
-  const imageVariants = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 1 },
-    },
+  // Container styles for making it sticky
+  const containerStyles = {
+    // position: "sticky", // Sticky positioning
+    // top: 0, // Stick to the top of the viewport
+    // height: "100vh", // Full viewport height
+    // zIndex: 10, // Make sure it's on top of other elements
   };
 
-  // Show loading state
-  // if (isLoading) {
-  //   return (
-  //     <Box
-  //       sx={{
-  //         display: "flex",
-  //         justifyContent: "center",
-  //         alignItems: "center",
-  //         minHeight: "400px",
-  //       }}
-  //     >
-  //       <CircularProgress />
-  //     </Box>
-  //   );
-  // }
+  const titleTextStyles = {
+    fontWeight: 700,
+    textAlign: "center",
+    fontSize: { xs: "38px", sm: "42px", md: "50px", lg: "60px" },
+  };
 
-  // Handle error state
-  // if (error) {
-  //   return (
-  //     <Box
-  //       sx={{
-  //         display: "flex",
-  //         justifyContent: "center",
-  //         alignItems: "center",
-  //         minHeight: "400px",
-  //       }}
-  //     >
-  //       <Typography color="error">Failed to load content</Typography>
-  //     </Box>
-  //   );
-  // }
+  const taglineTextStyles = {
+    fontWeight: 500,
+    textAlign: "center",
+    fontSize: { xs: "18px", lg: "20px" },
+    color: "#565973",
+    lineHeight: 1.6,
+  };
 
   return (
     <Box
-      sx={{
-        marginTop: {
-          sm: "-36%",
-          md: "-7.1%",
-        },
-        backgroundImage: `url(${bg})`, // Replace with your image URL
-        backgroundSize: "cover", // Ensures the image covers the entire background
-        backgroundPosition: "center", // Centers the image
-        backgroundRepeat: "no-repeat", // Prevents the image from repeating
-        position: "relative",
-        marginBottom: "20px",
-        minHeight: "100vh", // Optional: to ensure the section has enough height
-      }}
+    // sx={heroSectionStyles}
     >
       <Container>
-        <Box
-          sx={{
-            maxWidth: "1236px",
-            padding: "64px 16px",
-            margin: "0 auto",
-            position: "relative",
-          }}
-        >
+        <Box sx={containerStyles}>
           <Grid
             container
             spacing={2}
-            alignItems="center" // Vertically center the content
-            justifyContent="center" // Horizontally center the content
-            sx={{ minHeight: "100vh" }} // Optional: makes sure the container fills the full viewport height
+            alignItems="center"
+            justifyContent="center"
+            height="100vh"
+            sx={{ marginTop: "-9%" }}
           >
             {/* Text Section */}
             <Grid item xs={12}>
               <motion.div
-                variants={textVariants}
+                variants={textAnimation}
                 initial="initial"
                 animate="animate"
               >
+                {/* Hero Title */}
                 <Box mb={2}>
-                  <Typography
-                    variant="h2"
-                    component="h2"
-                    sx={{
-                      fontWeight: 700,
-                      textAlign: "center",
-                      fontSize: {
-                        xs: "38px",
-                        sm: "42px",
-                        md: "50px",
-                        lg: "60px",
-                      },
-                    }}
-                  >
-                    {/* {title} */}
+                  <Typography variant="h2" component="h2" sx={titleTextStyles}>
                     From Ideas to Loved Products
                   </Typography>
                 </Box>
 
+                {/* Hero Tagline */}
                 <Box mb={3}>
                   <Typography
                     variant="body1"
                     component="p"
-                    color="#565973"
-                    lineHeight={1.6}
-                    sx={{
-                      fontWeight: 500,
-                      textAlign: "center",
-                      fontSize: { xs: "18px", lg: "20px" },
-                    }}
+                    sx={taglineTextStyles}
                   >
-                    We bring your ideas to life and Build products people love
-                    {/* {content} */}
+                    We bring your ideas to life and build products people love
                   </Typography>
                 </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: { xs: "center", md: "left" },
-                  }}
-                >
-                  {/* <ButtonComponent
-                      variant="contained"
-                      size="large"
-                      label="Get in touch"
-                      fullWidth={smallScreen}
-                    /> */}
-                </Box>
               </motion.div>
-            </Grid>
-
-            {/* Image Section */}
-            <Grid
-              item
-              xs={12}
-              md={6}
-              sx={{ paddingLeft: "32px", paddingTop: "32px" }}
-            >
-              {/* <motion.div
-                  variants={image}
-                  initial="initial"
-                  animate="animate"
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <img
-                      src={image}
-                      alt="Hero"
-                      style={{ width: "100%", height: "auto" }}
-                    />
-                  </Box>
-                </motion.div> */}
             </Grid>
           </Grid>
         </Box>

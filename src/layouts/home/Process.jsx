@@ -46,22 +46,24 @@ const Process = () => {
   // const flowListData = flowList?.data || [];
 
   return (
-    <Box sx={{
-      // marginTop: '-28px',
-      position: "relative",
-      borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
-      boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
-      zIndex: '20',
-      // opacity: 1
-    }}>
+    <Box
+      sx={{
+        marginTop: "-28px",
+        position: "relative",
+        background: "#fff",
+        borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
+        boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
+        // opacity: 1
+      }}
+    >
       <Container fixed>
-        <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
+        <Box>
           <Grid
             container
             spacing={2}
             alignItems="center"
             justifyContent="center"
-            sx={{ minHeight: "70vh" }}
+            sx={{ minHeight: "110vh" }}
           >
             <Grid item xs={12} md={6}>
               <Box
@@ -70,8 +72,8 @@ const Process = () => {
                   height: "100%",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: 'center',
-                  textAlign: 'center',
+                  justifyContent: "center",
+                  textAlign: "center",
                 }}
               >
                 <Box>
