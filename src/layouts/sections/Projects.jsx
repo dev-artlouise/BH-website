@@ -33,22 +33,12 @@ const CardActions = () => (
 );
 
 const Fortpolio = () => {
-
   const revealAnimation = {
     hidden: { opacity: 0, scale: 0.9 }, // Start state: invisible and scaled down
     visible: {
       opacity: 1,
       scale: 1,
       transition: { duration: 0.5 }, // Duration for the animation
-    },
-  };
-
-  const SlideAnimation = {
-    initial: { x: -500, opacity: 0 },
-    animate: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 1, staggerChildren: 0.1 },
     },
   };
 
@@ -64,8 +54,8 @@ const Fortpolio = () => {
     my: 2,
     textTransform: "capitalize",
     fontSize: "18px",
-    color: "black"
-  }
+    color: "black",
+  };
 
   const contactButtonStyles = {
     ...buttonStyles,
@@ -139,12 +129,12 @@ const Fortpolio = () => {
       }}
     >
       <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
-
-        <Container sx={{
-          paddingY: { xs: '', md: '2rem' }
-        }}>
-          <Box my={{ xs: '', md: 8 }} textAlign="center">
-
+        <Container
+          sx={{
+            paddingY: { xs: "", md: "2rem" },
+          }}
+        >
+          <Box my={{ xs: "", md: 8 }} textAlign="center">
             <motion.div
               initial="hidden" // Start state
               whileInView="visible" // Animate to visible state when in view
@@ -170,12 +160,11 @@ const Fortpolio = () => {
               viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
             >
               <Typography variant="h6" component="p">
-                From your new website concept to its design, development, launch,
-                and expansion!
+                From your new website concept to its design, development,
+                launch, and expansion!
                 {/* {content ? content : <>  From your new website concept to its design, development, launch, and expansion!</>} */}
               </Typography>
             </motion.div>
-
           </Box>
 
           {/* {isProjectsLoading ? (
@@ -214,7 +203,6 @@ const Fortpolio = () => {
                 { id, title, content, image_url } // Use the conditionally sliced or full projects list
               ) => (
                 <Grid item xs={12} sm={10} md={6} key={id}>
-
                   <motion.div
                     initial="hidden" // Start state
                     whileInView="visible" // Animate to visible state when in view
@@ -227,7 +215,7 @@ const Fortpolio = () => {
                       cardContent={
                         <CardContent
                           title={title}
-                        // content={content}
+                          // content={content}
                         />
                       }
                       onClick={() => handleOnNavigateClick(id)}
@@ -257,8 +245,8 @@ const Fortpolio = () => {
                 viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
               >
                 <ActionButtonComponent
-                  label={'Case Studies'}
-                  path={'/fortpolio'}
+                  label={"Case Studies"}
+                  path={"/fortpolio"}
                   size="large"
                   styles={contactButtonStyles}
                 />
@@ -266,8 +254,8 @@ const Fortpolio = () => {
             </Box>
           )}
         </Container>
-      </Box >
-    </Box >
+      </Box>
+    </Box>
   );
 };
 

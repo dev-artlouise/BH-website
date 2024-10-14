@@ -17,13 +17,11 @@ import { Link as RouterLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { services } from "../../data";
 
-
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Services = () => {
-
-  const navigate = useNavigate()
-  const location = useLocation()
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const isAboutUsPath = location.pathname === "/about-us";
 
@@ -66,8 +64,8 @@ const Services = () => {
     my: 2,
     textTransform: "capitalize",
     fontSize: "18px",
-    color: "black"
-  }
+    color: "black",
+  };
 
   const contactButtonStyles = {
     ...buttonStyles,
@@ -102,7 +100,9 @@ const Services = () => {
       >
         <Typography
           fontSize={{ xs: "38px", sm: "42px", md: "50px", lg: "60px" }}
-          textAlign={{ xs: 'center' }} variant="h3" fontWeight="700"
+          textAlign={{ xs: "center" }}
+          variant="h3"
+          fontWeight="700"
           gutterBottom
         >
           High-impact design & development services
@@ -120,12 +120,12 @@ const Services = () => {
           fontWeight="500"
           fontSize="1.2rem"
           gutterBottom
-          textAlign={{ xs: 'center' }}
+          textAlign={{ xs: "center" }}
         >
           We take you by hand on each step of the process
         </Typography>
       </motion.div>
-    </Box >
+    </Box>
   );
 
   return (
@@ -145,7 +145,7 @@ const Services = () => {
             spacing={2}
             alignItems="center"
             justifyContent="center"
-            sx={{ minHeight: { xs: '', md: '110vh' } }}
+            sx={{ minHeight: { xs: "", md: "110vh" } }}
           >
             <Grid item xs={12} sm={10}>
               <ServiceContent />
@@ -193,8 +193,8 @@ const Services = () => {
                     viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
                   >
                     <ActionButtonComponent
-                      label={'About us'}
-                      path={'/about-us'}
+                      label={"About us"}
+                      path={"/about-us"}
                       size="large"
                       styles={contactButtonStyles}
                     />

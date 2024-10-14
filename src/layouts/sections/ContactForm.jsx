@@ -1,13 +1,12 @@
-import { Box, Container, Grid, Typography, Button } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
-import FormCardComponent from "../../components/common/FormCardComponent";
-import ButtonComponent from "../../components/common/ButtonComponent";
-import TextFieldComponent from "../../components/common/TextFieldComponent";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Box, Container, Grid, Typography, Button } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+
+import TextFieldComponent from "../../components/common/TextFieldComponent";
+import ActionButtonComponent from "../../components/common/ActionButtonComponent";
 
 const Contact = () => {
-
   const revealAnimation = {
     hidden: { opacity: 0, scale: 0.9 }, // Start state: invisible and scaled down
     visible: {
@@ -29,7 +28,7 @@ const Contact = () => {
     my: 2,
     textTransform: "capitalize",
     fontSize: "18px",
-    color: "black"
+    color: "black",
   };
 
   const contactButtonStyles = {
@@ -48,6 +47,102 @@ const Contact = () => {
     },
   };
 
+  const FormComponent = () => (
+    <form>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Box
+          sx={{
+            marginBottom: "16px",
+          }}
+        >
+          <TextFieldComponent
+            label="Fullname"
+            fullWidth={true}
+            variant="outlined"
+          />
+        </Box>
+
+        <Box
+          sx={{
+            marginBottom: "16px",
+          }}
+        >
+          <TextFieldComponent
+            label="Email"
+            fullWidth={true}
+            variant="outlined"
+          />
+        </Box>
+
+        <Box
+          sx={{
+            marginBottom: "16px",
+          }}
+        >
+          <TextFieldComponent
+            label="Tell us about your project"
+            fullWidth={true}
+            variant="outlined"
+            multiline={true}
+            rows={4}
+          />
+        </Box>
+
+        <ActionButtonComponent
+          fullWidth={true}
+          label={"Submit"}
+          path={"/contact-us"}
+          size={"large"}
+          styles={contactButtonStyles}
+        />
+
+        <Box
+          sx={{
+            marginTop: "32px",
+            marginBottom: "32px",
+          }}
+        >
+          <hr></hr>
+        </Box>
+
+        <Box>
+          <Typography component="p" variant="body2">
+            By sending a message you agree to our Privacy Policy, Data Policy
+            and Cookie Policy.
+          </Typography>
+        </Box>
+      </Box>
+    </form>
+  );
+
+  const TitleComponent = () => (
+    <Typography
+      variant="h3"
+      fontWeight={700}
+      gutterBottom
+      fontSize={{
+        xs: "38px",
+        sm: "42px",
+        md: "50px",
+        lg: "60px",
+      }}
+    >
+      Let's get in touch!
+    </Typography>
+  );
+
+  const SubtitleComponent = () => (
+    <Typography component="p" variant="h6">
+      Let us know about your project and we will get back to you with our
+      proposal and timeline.
+    </Typography>
+  );
+
   return (
     <Box
       sx={{
@@ -64,7 +159,7 @@ const Contact = () => {
         minHeight: "100vh",
       }}
     >
-      <Container fixed>
+      <Container>
         <Box
           sx={{
             paddingTop: "64px",
@@ -72,7 +167,7 @@ const Contact = () => {
           }}
         >
           <Box>
-            <Grid container spacing={6}>
+            <Grid container spacing={2}>
               <Grid xs={12} sm={10} md={6} item>
                 <Box
                   sx={{
@@ -88,130 +183,27 @@ const Contact = () => {
                     variants={revealAnimation} // Apply the defined variants
                     viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
                   >
-                    <Box>
-                      <Typography
-                        variant="h2"
-                        textAlign="left"
-                        fontWeight="700"
-                        gutterBottom
-                      >
-                        Let's get in touch!
-                      </Typography>
-
-                      <Box
-                        sx={{
-                          marginBottom: "32px",
-                        }}
-                      >
-                        <Typography component="p" variant="h6" fontWeight="500">
-                          Let us know about your project and we will get back to
-                          you with our proposal and timeline.
-                        </Typography>
-                      </Box>
+                    <Box
+                      sx={{
+                        marginBottom: { xs: "16px", md: "32px" }, // Add valid margin for xs or remove xs
+                      }}
+                    >
+                      <TitleComponent />
+                      <SubtitleComponent />
                     </Box>
                   </motion.div>
-
                 </Box>
               </Grid>
 
               <Grid xs={12} sm={10} md={6} item>
-
                 <motion.div
                   initial="hidden" // Start state
                   whileInView="visible" // Animate to visible state when in view
                   variants={revealAnimation} // Apply the defined variants
                   viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
                 >
-                  <FormCardComponent
-                    cardContent={
-                      <>
-                        <form>
-                          <Box
-                            sx={{
-                              display: "flex",
-                              flexDirection: "column",
-                            }}
-                          >
-                            <Box
-                              sx={{
-                                marginBottom: "16px",
-                              }}
-                            >
-                              <TextFieldComponent
-                                label="Fullname"
-                                fullWidth={true}
-                                variant="outlined"
-                              />
-                            </Box>
-
-                            <Box
-                              sx={{
-                                marginBottom: "16px",
-                              }}
-                            >
-                              <TextFieldComponent
-                                label="Email"
-                                fullWidth={true}
-                                variant="outlined"
-                              />
-                            </Box>
-
-                            <Box
-                              sx={{
-                                marginBottom: "16px",
-                              }}
-                            >
-                              <TextFieldComponent
-                                label="Tell us about your project"
-                                fullWidth={true}
-                                variant="outlined"
-                                multiline={true}
-                                rows={4}
-                              />
-                            </Box>
-
-                            <Box>
-                              <Button
-                                fullWidth
-                                component={RouterLink}
-                                to="/contact-us"
-                                size="large"
-                                sx={contactButtonStyles}
-                              >
-                                Submit
-                              </Button>
-
-                              {/* <ButtonComponent
-                              fullWidth={true}
-                              label="Submit"
-                              size="large"
-                              variant="contained"
-                              height="54px"
-                            /> */}
-                            </Box>
-
-                            <Box
-                              sx={{
-                                marginTop: "32px",
-                                marginBottom: "32px",
-                              }}
-                            >
-                              <hr></hr>
-                            </Box>
-
-                            <Box>
-                              <Typography component="p" variant="body2">
-                                By sending a message you agree to our Privacy
-                                Policy, Data Policy and Cookie Policy.
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </form>
-                      </>
-                    }
-                  />
+                  <FormComponent />
                 </motion.div>
-
               </Grid>
             </Grid>
           </Box>
