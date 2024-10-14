@@ -20,46 +20,53 @@ const About = () => {
     <>
       <Box
         sx={{
+          background: "#f3f6ff",
           position: "relative",
-          minHeight: "50vh",
+          minHeight: "100vh",
+          paddingTop: "64px",
+          paddingBottom: "64px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
-          <Container
-            sx={{
-              paddingY: { xs: '', md: '2rem' },
-            }}
-          >
-            <Introduction />
-            <Stats />
-          </Container>
-        </Box>
-
+        <Container
+          sx={{
+            paddingY: { xs: "", md: "2rem" },
+          }}
+        >
+          <Introduction />
+          <Stats />
+        </Container>
       </Box>
 
       <Box
         sx={{
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: { xs: "column", md: "row" }, // Responsive flex direction
+          borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
+          boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
           paddingTop: "64px",
           paddingBottom: "64px",
-          paddingLeft: "16px",
-          paddingRight: "16px",
         }}
       >
-        <Container fixed>
+        <Container>
           <Grid
             container
-            spacing={8}
+            spacing={2}
             alignItems="center"
             justifyContent="center"
-            sx={{ minHeight: "50vh" }}
           >
             {/* Mission */}
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={10} md={8}>
               <Mission isLoading={isLoading} data={mission} />
             </Grid>
 
             {/* Vision */}
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={10} md={8}>
               <Vision isLoading={isLoading} data={vision} />
             </Grid>
           </Grid>
@@ -77,8 +84,7 @@ const About = () => {
       >
         <OurStory />
         <Team />
-      </Box >
-
+      </Box>
     </>
   );
 };

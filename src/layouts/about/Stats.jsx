@@ -1,11 +1,13 @@
 import { Box, Grid, Typography } from "@mui/material";
 import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
 import { useStats } from "../../hooks/useAboutPage";
+import Reveal from "../../components/animations/Reveal";
 
 const LoadingStats = () => (
   <Box
     sx={{
-      padding: "16px",
+      paddingTop: "64px",
+      paddingBottom: "64px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -29,7 +31,7 @@ const LoadingStats = () => (
 
 const StatItem = ({ isLoading, value, label }) => (
   <Grid item xs={12} sm={4}>
-    {isLoading ? (
+    {/* {isLoading ? (
       <LoadingStats />
     ) : (
       <Box
@@ -45,7 +47,22 @@ const StatItem = ({ isLoading, value, label }) => (
         </Typography>
         <Typography variant="body1">{label}</Typography>
       </Box>
-    )}
+    )} */}
+    <Reveal>
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        height="100%"
+        my={5}
+      >
+        <Typography variant="h2" fontWeight="700" mb={2}>
+          {value}
+        </Typography>
+        <Typography variant="body1">{label}</Typography>
+      </Box>
+    </Reveal>
   </Grid>
 );
 
@@ -55,7 +72,7 @@ const Stats = () => {
     data?.data || {};
 
   return (
-    <Box>
+    <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
       <Grid container spacing={2}>
         <StatItem
           isLoading={isLoading}
@@ -63,12 +80,14 @@ const Stats = () => {
           // value={year_in_business}
           label="Years in Business"
         />
+
         <StatItem
           isLoading={isLoading}
           value={"150"}
           // value={project_delivered}
           label="Projects Delivered"
         />
+
         <StatItem
           isLoading={isLoading}
           value={"99"}

@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
+import Reveal from "../../components/animations/Reveal";
 
 const LoadingComponent = () => (
   <Box
@@ -16,35 +17,49 @@ const LoadingComponent = () => (
 );
 
 const Mission = ({ data, isLoading }) => (
-  <Box sx={{ marginBottom: "32px" }}>
-    <Typography
-      variant="body1"
-      fontWeight="700"
-      textTransform="uppercase"
-      textAlign="center"
-      gutterBottom
-    >
-      Our Mission
-    </Typography>
-
-    {isLoading ? (
+  <Box
+    sx={{
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      minHeight: "50vh",
+    }}
+  >
+    {/* {isLoading ? (
       <LoadingComponent />
     ) : (
-      <Typography
-        variant="body1"
-        fontWeight="500"
-        fontSize="1.2rem"
-        textAlign="center"
-        gutterBottom
-      >
-        To supply high-quality computer products and exceptional customer
-        service, empowering individuals and businesses with the latest
-        technology to achieve their goals. We are committed to innovation,
-        reliability, and fostering long-term relationships with our customers
-        through trust and excellence.
-        {/* {data} */}
-      </Typography>
-    )}
+     
+    )} */}
+    <Box>
+      <Reveal>
+        <Typography
+          variant="h6"
+          fontWeight="700"
+          textTransform="uppercase"
+          textAlign={{ xs: "center", md: "start" }}
+          gutterBottom
+        >
+          Our Mission
+        </Typography>
+      </Reveal>
+
+      <Reveal>
+        <Typography
+          variant="h4"
+          fontWeight="500"
+          fontSize={{ xs: "20px", md: "38px" }}
+          gutterBottom
+          textAlign={{ xs: "center", md: "start" }}
+        >
+          To supply high-quality computer products and exceptional customer
+          service, empowering individuals and businesses with the latest
+          technology to achieve their goals. We are committed to innovation,
+          reliability, and fostering long-term relationships with our customers
+          through trust and excellence.
+          {/* {data} */}
+        </Typography>
+      </Reveal>
+    </Box>
   </Box>
 );
 
