@@ -28,16 +28,12 @@ const Introduction = () => {
   const { title, content } = data?.data || {};
 
   return (
-    <Box sx={{ marginBottom: "32px" }}>
-      <Typography
-        variant="body1"
-        fontWeight="500"
-        textTransform="uppercase"
-        textAlign="center"
-        gutterBottom
-      >
-        We Are Broadheaders
-      </Typography>
+    <Box
+      sx={{
+        paddingTop: "64px",
+        paddingBottom: "64px",
+        marginBottom: "32px"
+      }}>
 
       {isLoading ? (
         <LoadingAboutUs />

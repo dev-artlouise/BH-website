@@ -20,20 +20,21 @@ const About = () => {
     <>
       <Box
         sx={{
-          // background: "#f3f6ff",
           position: "relative",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          // paddingTop: "64px",
-          // paddingBottom: "64px",
           minHeight: "50vh",
         }}
       >
-        <Container fixed>
-          <Introduction />
-          <Stats />
-        </Container>
+        <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
+          <Container
+            sx={{
+              paddingY: { xs: '', md: '2rem' },
+            }}
+          >
+            <Introduction />
+            <Stats />
+          </Container>
+        </Box>
+
       </Box>
 
       <Box

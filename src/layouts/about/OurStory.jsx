@@ -26,7 +26,8 @@ const OurStory = () => {
   return (
     <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
       <Container fixed>
-        <Typography
+
+        {/* <Typography
           textAlign="center"
           variant="h4"
           fontSize="1rem"
@@ -34,9 +35,9 @@ const OurStory = () => {
           textTransform="uppercase"
         >
           Our Story
-        </Typography>
+        </Typography> */}
 
-        <Typography mt={4} variant="h6" alignItems="center" textAlign="center">
+        {/* <Typography mt={4} variant="h6" alignItems="center" textAlign="center">
           BroadHeader's journey began just a short time ago, fueled by a passion
           for technology and a vision to empower businesses. Founded by a group
           of driven engineers and entrepreneurs, we set out to create innovative
@@ -61,7 +62,7 @@ const OurStory = () => {
           growth. We're excited to expand our reach and empower even more
           businesses with cutting-edge software solutions that drive progress
           and unlock their full potential.
-        </Typography>
+        </Typography> */}
 
         {/* {isLoading ? (
           <LoadingComponent />

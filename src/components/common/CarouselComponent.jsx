@@ -28,8 +28,8 @@ const CarouselComponent = ({ sliderContent, slidesToShow, slidesToScroll }) => {
             {
                 breakpoint: 900, // Adjust for medium screens
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                 },
             },
             {

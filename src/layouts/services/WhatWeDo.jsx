@@ -1,4 +1,4 @@
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography, Container, Grid } from "@mui/material";
 
 import ButtonComponent from "../../components/common/ButtonComponent";
 
@@ -12,30 +12,32 @@ const WhatWeDo = () => {
         paddingBottom: "64px",
       }}
     >
-      <Container>
-        <Box>
-          <Box textAlign="center" marginBottom={4}>
-            <Typography
-              variant="body1"
-              gutterBottom
-              component="P"
-              textAlign="center"
-              fontSize="1rem"
-              fontWeight="500"
-              textTransform="uppercase"
-            >
-              What we do
-            </Typography>
 
-            <Box display="flex" justifyContent="center" alignItems="center">
-              <img
-                src={WhatWeDoImg}
-                alt="services-image"
-                width={520}
-                height={520}
-              />
-            </Box>
 
+      <Grid
+        container
+        spacing={2}
+        justifyContent="center"
+        alignItems="center"
+        direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
+      >
+
+        <Grid item xs={12} sm={10} md={6}>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center">
+            <img
+              src={WhatWeDoImg}
+              alt="services-image"
+              width={520}
+              height={520}
+            />
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} sm={10} md={6}>
+          <Box marginBottom={4}>
             <Typography variant="h3" gutterBottom fontWeight="700">
               Transforming Businesses Through Technology
             </Typography>
@@ -46,17 +48,10 @@ const WhatWeDo = () => {
               how we leverage technology to empower our clients and deliver
               exceptional results.
             </Typography>
-
-            {/* <Box marginTop={3} display="flex" justifyContent="center">
-              <ButtonComponent
-                label="Contact us"
-                variant="contained"
-                size="large"
-              />
-            </Box> */}
           </Box>
-        </Box>
-      </Container>
+        </Grid>
+      </Grid>
+
     </Box>
   );
 };
