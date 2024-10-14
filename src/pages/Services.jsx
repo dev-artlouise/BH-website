@@ -14,7 +14,11 @@ import ServicesLayout from "../layouts/home/Services";
 
 import { companies, process } from "../data";
 
+import { useNavigate, useLocation } from "react-router-dom";
+
 const Services = () => {
+
+
   const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
@@ -61,7 +65,7 @@ const Services = () => {
         {/* <WorkWithUs /> */}
         <ServicesLayout />
         {/* <SeenOn data={companies} /> */}
-        <Process data={process} />
+        {/* <Process data={process} /> */}
 
         <Box
           sx={{

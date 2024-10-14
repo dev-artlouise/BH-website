@@ -3,10 +3,14 @@ import { Link as RouterLink } from "react-router-dom";
 import { Box, Container, Grid, Typography, Button, Chip } from "@mui/material";
 import CardComponent from "../../components/common/CardComponent";
 import ButtonComponent from "../../components/common/ButtonComponent";
+
 import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
+import ActionButtonComponent from "../../components/common/ActionButtonComponent";
 
 import { useNavigate, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import { useProjectsList, useProjectContent } from "../../hooks/useMainPage";
+
 import { projects } from "../../data";
 
 // Component to render the content inside each card
@@ -29,6 +33,25 @@ const CardActions = () => (
 );
 
 const Fortpolio = () => {
+
+  const revealAnimation = {
+    hidden: { opacity: 0, scale: 0.9 }, // Start state: invisible and scaled down
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5 }, // Duration for the animation
+    },
+  };
+
+  const SlideAnimation = {
+    initial: { x: -500, opacity: 0 },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 1, staggerChildren: 0.1 },
+    },
+  };
+
   const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
@@ -39,30 +62,24 @@ const Fortpolio = () => {
 
   const buttonStyles = {
     my: 2,
-    display: "block",
     textTransform: "capitalize",
     fontSize: "18px",
-    color: scrolling ? "black" : "white",
-  };
+    color: "black"
+  }
 
   const contactButtonStyles = {
     ...buttonStyles,
-    width: {
-      xs: "100%", // Full width on extra-small screens
-      sm: "100%", // Full width on small screens
-      md: "25%", // 25% width on medium and larger screens
-    },
-    borderRadius: "9999px",
+    borderRadius: "50px",
     borderWidth: "2px",
     borderStyle: "solid",
     padding: ".75rem 2.5rem",
     fontSize: "1.125rem",
     lineHeight: "1.75rem",
-    borderColor: scrolling ? "black" : "lightgray",
+    borderColor: "black",
     backgroundColor: "transparent",
     "&:hover": {
-      color: scrolling ? "white" : "black",
-      backgroundColor: scrolling ? "black" : "lightgray",
+      color: "white",
+      backgroundColor: "black",
     },
   };
 
@@ -116,34 +133,49 @@ const Fortpolio = () => {
       sx={{
         background: "#f3f6ff",
         position: "relative",
-        borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
-        boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
+        minHeight: "80vh",
+        borderRadius: !isFortpolioPath && "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
+        boxShadow: !isFortpolioPath && "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
       }}
     >
       <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
-        <Container>
-          <Box my={8} textAlign="center">
-            <Typography
-              variant="body1"
-              fontWeight={500}
-              textTransform="uppercase"
-              gutterBottom
+
+        <Container sx={{
+          paddingY: { xs: '', md: '2rem' }
+        }}>
+          <Box my={{ xs: '', md: 8 }} textAlign="center">
+
+            <motion.div
+              initial="hidden" // Start state
+              whileInView="visible" // Animate to visible state when in view
+              variants={revealAnimation} // Apply the defined variants
+              viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
             >
-              Our Work
-            </Typography>
+              <Typography
+                variant="h3"
+                fontWeight={700}
+                gutterBottom
+                fontSize={{ xs: "38px", sm: "42px", md: "50px", lg: "60px" }}
+              >
+                Our team strives to achieve excellence in every detail of our
+                work.
+                {/* {title} */}
+                {/* {title ? title : <>Our team strives to achieve excellence in every detail of our work.</>} */}
+              </Typography>
+            </motion.div>
+            <motion.div
+              initial="hidden" // Start state
+              whileInView="visible" // Animate to visible state when in view
+              variants={revealAnimation} // Apply the defined variants
+              viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
+            >
+              <Typography variant="h6" component="p">
+                From your new website concept to its design, development, launch,
+                and expansion!
+                {/* {content ? content : <>  From your new website concept to its design, development, launch, and expansion!</>} */}
+              </Typography>
+            </motion.div>
 
-            <Typography variant="h3" fontWeight={700} gutterBottom>
-              Our team strives to achieve excellence in every detail of our
-              work.
-              {/* {title} */}
-              {/* {title ? title : <>Our team strives to achieve excellence in every detail of our work.</>} */}
-            </Typography>
-
-            <Typography variant="h6" component="p">
-              From your new website concept to its design, development, launch,
-              and expansion!
-              {/* {content ? content : <>  From your new website concept to its design, development, launch, and expansion!</>} */}
-            </Typography>
           </Box>
 
           {/* {isProjectsLoading ? (
@@ -173,63 +205,69 @@ const Fortpolio = () => {
 
           <Grid
             container
-            spacing={5}
+            spacing={2}
             alignItems="center"
             justifyContent="center"
-            sx={{ minHeight: "50vh" }}
-            // sx={{ my: "2rem" }}
           >
             {projectsData.map(
               (
                 { id, title, content, image_url } // Use the conditionally sliced or full projects list
               ) => (
                 <Grid item xs={12} sm={10} md={6} key={id}>
-                  <CardComponent
-                    image={image_url}
-                    title={title}
-                    cardContent={
-                      <CardContent
-                        title={title}
+
+                  <motion.div
+                    initial="hidden" // Start state
+                    whileInView="visible" // Animate to visible state when in view
+                    variants={revealAnimation} // Apply the defined variants
+                    viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
+                  >
+                    <CardComponent
+                      image={image_url}
+                      title={title}
+                      cardContent={
+                        <CardContent
+                          title={title}
                         // content={content}
-                      />
-                    }
-                    onClick={() => handleOnNavigateClick(id)}
-                    cardActions={<CardActions />}
-                  />
+                        />
+                      }
+                      onClick={() => handleOnNavigateClick(id)}
+                      cardActions={<CardActions />}
+                    />
+                  </motion.div>
                 </Grid>
               )
             )}
-
-            <Grid item xs={12} sm={10}>
-              {!isFortpolioPath && ( // Render button only if not on 'fortpolio' path
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    textAlign: "center",
-                    mt: 5,
-                  }}
-                >
-                  <Button
-                    component={RouterLink}
-                    to="/fortpolio"
-                    size="large"
-                    sx={contactButtonStyles}
-                  >
-                    Case Studies
-                    <Box component={"span"} ml={2}>
-                      >
-                    </Box>
-                  </Button>
-                </Box>
-              )}
-            </Grid>
           </Grid>
+
+          {!isFortpolioPath && ( // Render button only if not on 'fortpolio' path
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                textAlign: "center",
+                mt: 5,
+              }}
+            >
+              <motion.div
+                initial="hidden" // Start state
+                whileInView="visible" // Animate to visible state when in view
+                variants={revealAnimation} // Apply the defined variants
+                viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
+              >
+                <ActionButtonComponent
+                  label={'Case Studies'}
+                  path={'/fortpolio'}
+                  size="large"
+                  styles={contactButtonStyles}
+                />
+              </motion.div>
+            </Box>
+          )}
         </Container>
-      </Box>
-    </Box>
+      </Box >
+    </Box >
   );
 };
 

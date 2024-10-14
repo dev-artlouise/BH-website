@@ -6,6 +6,8 @@ import { Link as RouterLink } from "react-router-dom";
 import logo from "../assets/bh-logo.png";
 import logoReverse from "../assets/bh-logo-reverse.png";
 
+import ActionButtonComponent from "../components/common/ActionButtonComponent";
+
 const AppbarComponent = () => {
   const [scrolling, setScrolling] = useState(false);
 
@@ -46,7 +48,7 @@ const AppbarComponent = () => {
   };
 
   const buttonStyles = {
-    my: 2,
+    // my: 2,
     display: "block",
     textTransform: "capitalize",
     fontSize: "18px",
@@ -55,7 +57,7 @@ const AppbarComponent = () => {
 
   const contactButtonStyles = {
     ...buttonStyles,
-    borderRadius: "9999px",
+    borderRadius: "50px",
     borderWidth: "2px",
     borderStyle: "solid",
     padding: ".75rem 2.5rem",
@@ -124,18 +126,13 @@ const AppbarComponent = () => {
                 ))}
               </Box>
 
-              {/* Contact Us Button */}
-              <Button
-                LinkComponent={RouterLink}
-                to="/contact-us"
+              <ActionButtonComponent
+                label={'Contact Us'}
+                path={'/contact-us'}
                 size="large"
-                sx={contactButtonStyles}
-              >
-                Contact Us
-                <Box component={"span"} ml={2}>
-                  >
-                </Box>
-              </Button>
+                styles={contactButtonStyles}
+              />
+
             </Box>
           </Toolbar>
         </Container>

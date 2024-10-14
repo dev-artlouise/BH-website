@@ -1,5 +1,7 @@
 import { Typography, Box, Grid, Container } from "@mui/material";
 import { motion } from "framer-motion";
+
+
 const Hero = () => {
   // Animation Variants
   const textAnimation = {
