@@ -11,6 +11,8 @@ import PaperCardComponent from "../../components/common/PaperCardComponent";
 import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
 import { useFlowListSection } from "../../hooks/useMainPage";
 
+import { motion } from "framer-motion";
+
 import { process } from "../../data";
 
 // Loading Component for Flow List
@@ -42,26 +44,63 @@ const LoadingFlowList = () => (
 
 // Main Process Component
 const Process = () => {
+
+  const revealAnimation = {
+    hidden: { opacity: 0, scale: 0.9 }, // Start state: invisible and scaled down
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5 }, // Duration for the animation
+    },
+  };
+
+  const SlideAnimation = {
+    initial: { x: -500, opacity: 0 },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 1, staggerChildren: 0.1 },
+    },
+  };
+
+  const titleTextStyles = {
+    fontWeight: 700,
+    marginTop: '1rem',
+    textAlign: { xs: 'center', md: 'start' },
+    fontSize: { xs: "38px", sm: "42px", md: "50px", lg: "60px" },
+  };
+
+  const subtitleStyles = {
+    fontWeight: 500,
+    marginTop: '1rem',
+    textAlign: { xs: 'center', md: 'start' },
+    fontSize: { xs: "18px", lg: "20px" },
+    color: "#565973",
+    lineHeight: 1.6,
+  }
+
   // const { isLoading, data: flowList } = useFlowListSection();
   // const flowListData = flowList?.data || [];
 
   return (
-    <Box sx={{
-      // marginTop: '-28px',
-      position: "relative",
-      borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
-      boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
-      zIndex: '20',
-      // opacity: 1
-    }}>
-      <Container fixed>
-        <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
+    <Box
+      sx={{
+        marginTop: "-28px",
+        position: "relative",
+        background: "#fff",
+        borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
+        boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
+        // opacity: 1
+      }}
+    >
+      <Box sx={{ paddingTop: "64px", paddingBottom: "64px" }}>
+        <Container>
           <Grid
             container
             spacing={2}
             alignItems="center"
             justifyContent="center"
-            sx={{ minHeight: "70vh" }}
+            sx={{ minHeight: { xs: '', md: '110vh' } }}
           >
             <Grid item xs={12} md={6}>
               <Box
@@ -70,40 +109,47 @@ const Process = () => {
                   height: "100%",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: 'center',
-                  textAlign: 'center',
+                  justifyContent: "center",
+                  textAlign: "start",
                 }}
               >
                 <Box>
-                  <Typography
-                    variant="body1"
-                    component="p"
-                    // textAlign="left"
-                    textTransform="uppercase"
-                    fontWeight="500"
-                    gutterBottom
+                  <motion.div
+                    initial="hidden" // Start state
+                    whileInView="visible" // Animate to visible state when in view
+                    variants={revealAnimation} // Apply the defined variants
+                    viewport={{ once: true }} // Allow animation to trigger only once
                   >
-                    Our Process
-                  </Typography>
-                  <Typography
-                    variant="h3"
-                    // textAlign="left"
-                    fontWeight="700"
-                    gutterBottom
+                    <Typography
+                      variant="h3"
+                      // textAlign="left"
+                      gutterBottom
+                      sx={{ ...titleTextStyles }}
+                    >
+                      An uncomplicated yet effective process
+                    </Typography>
+                  </motion.div>
+
+                  <motion.div
+                    initial="hidden" // Start state
+                    whileInView="visible" // Animate to visible state when in view
+                    variants={revealAnimation} // Apply the defined variants
+                    viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
                   >
-                    An uncomplicated yet effective process
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    component="p"
-                    gutterBottom
-                    fontWeight="500"
-                    textAlign="left"
-                  >
-                    As specialists in design and development, we assist you
-                    through the entire process, from your initial website
-                    concept to design, development, launch, and scaling!
-                  </Typography>
+                    <Typography
+                      variant="h6"
+                      component="p"
+                      gutterBottom
+                      fontWeight="500"
+                      textAlign="left"
+                      sx={{ ...subtitleStyles }}
+                    >
+                      As specialists in design and development, we assist you
+                      through the entire process, from your initial website
+                      concept to design, development, launch, and scaling!
+                    </Typography>
+                  </motion.div>
+
                 </Box>
               </Box>
             </Grid>
@@ -139,15 +185,23 @@ const Process = () => {
                   sliderContent={process.map(
                     ({ id, title, content, logo_url }) => (
                       <Box key={id} sx={{ padding: "16px" }}>
-                        <PaperCardComponent
-                          alignItems="left"
-                          textAlign="left"
-                          title={title}
-                          // icon={logo_url}
-                          description={content}
-                          avatarHeight="48"
-                          avatarWidth="48"
-                        />
+
+                        <motion.div
+                          initial="hidden" // Start state
+                          whileInView="visible" // Animate to visible state when in view
+                          variants={revealAnimation} // Apply the defined variants
+                          viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
+                        >
+                          <PaperCardComponent
+                            alignItems="left"
+                            textAlign="left"
+                            title={title}
+                            // icon={logo_url}
+                            description={content}
+                            avatarHeight="48"
+                            avatarWidth="48"
+                          />
+                        </motion.div>
                       </Box>
                     )
                   )}
@@ -155,8 +209,9 @@ const Process = () => {
               </Box>
             </Grid>
           </Grid>
-        </Box>
-      </Container>
+        </Container>
+      </Box>
+
     </Box>
   );
 };

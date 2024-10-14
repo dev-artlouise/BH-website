@@ -2,6 +2,8 @@ import { Box, Typography, Container } from "@mui/material";
 
 import ButtonComponent from "../../components/common/ButtonComponent";
 
+import WhatWeDoImg from "../../assets/what-we-do.jpg";
+
 const WhatWeDo = () => {
   return (
     <Box
@@ -24,6 +26,15 @@ const WhatWeDo = () => {
             >
               What we do
             </Typography>
+
+            <Box display="flex" justifyContent="center" alignItems="center">
+              <img
+                src={WhatWeDoImg}
+                alt="services-image"
+                width={520}
+                height={520}
+              />
+            </Box>
 
             <Typography variant="h3" gutterBottom fontWeight="700">
               Transforming Businesses Through Technology
