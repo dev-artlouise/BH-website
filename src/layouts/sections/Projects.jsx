@@ -1,22 +1,20 @@
-import { useState, useEffect } from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { Box, Container, Grid, Typography, Button, Chip } from "@mui/material";
-import CardComponent from "../../components/common/CardComponent";
-import ButtonComponent from "../../components/common/ButtonComponent";
+import { Box, Container, Grid, Typography, Chip, Stack } from "@mui/material";
+import { useNavigate, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
 import ActionButtonComponent from "../../components/common/ActionButtonComponent";
+import CardComponent from "../../components/common/CardComponent";
+import Reveal from "../../components/animations/Reveal";
 
-import { useNavigate, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
 import { useProjectsList, useProjectContent } from "../../hooks/useMainPage";
 
 import { projects } from "../../data";
 
-// Component to render the content inside each card
+// Components
 const CardContent = ({ title, content }) => (
   <>
-    <Typography variant="h5" gutterBottom>
+    <Typography variant="h4" fontWeight={700} gutterBottom>
       {title}
     </Typography>
     <Typography variant="body2" gutterBottom>
@@ -26,13 +24,14 @@ const CardContent = ({ title, content }) => (
 );
 
 const CardActions = () => (
-  <>
-    <Chip label="Web Development" />
-    <Chip label="UX Design" />
-  </>
+  <Stack direction="row" spacing={1}>
+    <Chip label="Web Devlopment" color="secondary" variant="outlined" />
+    <Chip label="UX Design" color="secondary" variant="outlined" />
+  </Stack>
 );
 
 const Fortpolio = () => {
+  // Animation;
   const revealAnimation = {
     hidden: { opacity: 0, scale: 0.9 }, // Start state: invisible and scaled down
     visible: {
@@ -42,14 +41,7 @@ const Fortpolio = () => {
     },
   };
 
-  const [scrolling, setScrolling] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolling(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+  // Styles
   const buttonStyles = {
     my: 2,
     textTransform: "capitalize",
@@ -194,7 +186,7 @@ const Fortpolio = () => {
 
           <Grid
             container
-            spacing={2}
+            spacing={4}
             alignItems="center"
             justifyContent="center"
           >
@@ -203,25 +195,19 @@ const Fortpolio = () => {
                 { id, title, content, image_url } // Use the conditionally sliced or full projects list
               ) => (
                 <Grid item xs={12} sm={10} md={6} key={id}>
-                  <motion.div
-                    initial="hidden" // Start state
-                    whileInView="visible" // Animate to visible state when in view
-                    variants={revealAnimation} // Apply the defined variants
-                    viewport={{ once: true }} // Allow animation to trigger again if scrolled out and back in
-                  >
+                  <Reveal>
                     <CardComponent
                       image={image_url}
                       title={title}
                       cardContent={
-                        <CardContent
-                          title={title}
-                          // content={content}
-                        />
+                        <Reveal>
+                          <CardContent title={title} />
+                          <CardActions />
+                        </Reveal>
                       }
                       onClick={() => handleOnNavigateClick(id)}
-                      cardActions={<CardActions />}
                     />
-                  </motion.div>
+                  </Reveal>
                 </Grid>
               )
             )}

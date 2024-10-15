@@ -223,7 +223,7 @@ export const process = [
 export const projects = [
   {
     id: 1,
-    title: "Ax Token",
+    title: "AxToken",
     content:
       "Axtoken is a cryptocurrency website designed to provide a seamless and user-friendly experience for buying, selling, and trading digital assets. Inspired by platforms like Binance, Axtoken offers a comprehensive suite of tools and features for both novice and experienced crypto enthusiasts.",
     image_url: axtoken,

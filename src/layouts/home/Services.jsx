@@ -1,19 +1,9 @@
 import { useState, useEffect } from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Paper,
-  CardContent,
-  Button,
-  Grow,
-} from "@mui/material";
+import { Box, Container, Typography, Grid } from "@mui/material";
 import CarouselComponent from "../../components/common/CarouselComponent";
 import PaperCardComponent from "../../components/common/PaperCardComponent";
 import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
 import ActionButtonComponent from "../../components/common/ActionButtonComponent";
-import { Link as RouterLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { services } from "../../data";
 
@@ -51,14 +41,6 @@ const Services = () => {
       transition: { duration: 0.5 }, // Duration for the animation
     },
   };
-
-  const [scrolling, setScrolling] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolling(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const buttonStyles = {
     my: 2,
