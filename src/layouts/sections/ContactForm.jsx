@@ -167,7 +167,7 @@ const Contact = () => {
           }}
         >
           <Box>
-            <Grid container spacing={2}>
+            <Grid justifyContent={"center"} container spacing={2}>
               <Grid xs={12} sm={10} md={6} item>
                 <Box
                   sx={{

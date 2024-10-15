@@ -46,7 +46,7 @@ const Footer = () => {
     fontSize: "1rem",
     fontWeight: 700,
     my: 1,
-    textAlign: { xs: "center", lg: "start" },
+    textAlign: { xs: "center", md: "start" },
   };
 
   return (
@@ -63,7 +63,7 @@ const Footer = () => {
       >
         <Container maxWidth="lg" sx={{ my: 5 }}>
           <Grid container justifyContent="center" spacing={4}>
-            <Grid item xs={12} lg={3}>
+            <Grid item xs={12} md={3}>
               <Box
                 sx={{ ...alignStyles }}
                 component="img"
@@ -71,15 +71,15 @@ const Footer = () => {
                 alt="BH-logo"
               />
             </Grid>
-            <Grid item xs={12} lg={3}>
-              <Box sx={{ textAlign: { xs: "center", lg: "start" }, my: 1 }}>
+            <Grid item xs={12} md={3}>
+              <Box sx={{ textAlign: { xs: "center", md: "start" }, my: 1 }}>
                 <Typography sx={{ ...headerStyles }}>
                   Unit S3, Branstone Business Park, Sandown, Isle of Wight, PO36
                   0EQ
                 </Typography>
               </Box>
 
-              <Box sx={{ textAlign: { xs: "center", lg: "start" } }}>
+              <Box sx={{ textAlign: { xs: "center", md: "start" } }}>
                 {contactDetails.map(({ label, path }, index) => (
                   <Link
                     key={index}
@@ -94,9 +94,9 @@ const Footer = () => {
                 ))}
               </Box>
             </Grid>
-            <Grid item xs={12} lg={3}>
+            <Grid item xs={12} md={3}>
               <Typography sx={{ ...headerStyles }}>Services</Typography>
-              <Box sx={{ textAlign: { xs: "center", lg: "start" } }}>
+              <Box sx={{ textAlign: { xs: "center", md: "start" } }}>
                 {services.map(({ label, path }, index) => (
                   <Link
                     key={index}
@@ -111,9 +111,9 @@ const Footer = () => {
                 ))}
               </Box>
             </Grid>
-            <Grid item xs={12} lg={3}>
+            <Grid item xs={12} md={3}>
               <Typography sx={{ ...headerStyles }}>Socials</Typography>
-              <Box sx={{ textAlign: { xs: "center", lg: "start" } }}>
+              <Box sx={{ textAlign: { xs: "center", md: "start" } }}>
                 {socials.map(({ label, path }, index) => (
                   <Link
                     component={RouterLink}
