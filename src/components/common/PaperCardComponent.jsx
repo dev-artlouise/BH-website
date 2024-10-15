@@ -14,13 +14,13 @@ const PaperCardComponent = ({
       <Paper
         sx={{
           borderRadius: "20px",
-          paddingBottom: "24px",
-          height: "250px",
+          paddingBottom: "64px",
+          height: { md: "320px" },
         }}
       >
         <CardContent
           sx={{
-            padding: "48px",
+            padding: "38px",
             paddingBottom: "48px",
             display: "flex",
             flexDirection: "column",

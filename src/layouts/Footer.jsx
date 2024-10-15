@@ -32,90 +32,102 @@ const Footer = () => {
     { label: "Youtube", path: "#" },
   ];
 
+  const alignStyles = {
+    alignItems: { xs: "center", lg: "start" },
+    justifyContent: { xs: "center", lg: "start" },
+    height: 60,
+    borderRadius: "3px",
+    mb: 1,
+    mx: "auto",
+    display: { xs: "", lg: "flex" },
+  };
+
+  const headerStyles = {
+    fontSize: "1rem",
+    fontWeight: 700,
+    my: 1,
+    textAlign: { xs: "center", lg: "start" },
+  };
+
   return (
     <footer>
       <Box
         component="footer"
         sx={{
+          position: "relative",
           py: 3,
           px: 2,
           backgroundColor: (theme) => theme.palette.grey[800],
           color: "white",
         }}
       >
-        <Container maxWidth="lg">
-          <Grid container justifyContent="center" spacing={4} sx={{ my: 2 }}>
-            <Grid item xs={6} lg={3}>
+        <Container maxWidth="lg" sx={{ my: 5 }}>
+          <Grid container justifyContent="center" spacing={4}>
+            <Grid item xs={12} lg={3}>
               <Box
+                sx={{ ...alignStyles }}
                 component="img"
                 src={logo}
                 alt="BH-logo"
-                sx={{
-                  height: 60,
-                  marginRight: "1rem",
-                  borderRadius: "3px",
-                  mb: 1,
-                }}
               />
-
-              {/* <Typography>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel doloribus sit inventore amet, consectetur rerum aliquid deserunt voluptas dignissimos quod eius similique omnis, dolorem animi delectus natus ad, recusandae quos.
-                            </Typography> */}
             </Grid>
-
-            <Grid item xs={6} lg={3}>
-              <Box sx={{ mb: 1 }}>
-                Unit S3, Branstone Business Park, Sandown, Isle of Wight, PO36
-                0EQ
+            <Grid item xs={12} lg={3}>
+              <Box sx={{ textAlign: { xs: "center", lg: "start" }, my: 1 }}>
+                <Typography sx={{ ...headerStyles }}>
+                  Unit S3, Branstone Business Park, Sandown, Isle of Wight, PO36
+                  0EQ
+                </Typography>
               </Box>
 
-              {contactDetails.map(({ label, path }, index) => (
-                <Box key={index}>
+              <Box sx={{ textAlign: { xs: "center", lg: "start" } }}>
+                {contactDetails.map(({ label, path }, index) => (
+                  <Link
+                    key={index}
+                    component={RouterLink}
+                    to={path}
+                    color="inherit"
+                    underline="none"
+                    sx={{ display: "block", my: 1 }}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </Box>
+            </Grid>
+            <Grid item xs={12} lg={3}>
+              <Typography sx={{ ...headerStyles }}>Services</Typography>
+              <Box sx={{ textAlign: { xs: "center", lg: "start" } }}>
+                {services.map(({ label, path }, index) => (
+                  <Link
+                    key={index}
+                    // component={RouterLink}
+                    // to={path}
+                    color="inherit"
+                    underline="none"
+                    sx={{ display: "block", my: 1 }}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </Box>
+            </Grid>
+            <Grid item xs={12} lg={3}>
+              <Typography sx={{ ...headerStyles }}>Socials</Typography>
+              <Box sx={{ textAlign: { xs: "center", lg: "start" } }}>
+                {socials.map(({ label, path }, index) => (
                   <Link
                     component={RouterLink}
                     to={path}
                     color="inherit"
                     underline="none"
-                    sx={{ display: "block", mb: 1 }}
+                    sx={{ display: "block", my: 1 }}
+                    key={index}
                   >
                     {label}
                   </Link>
-                </Box>
-              ))}
+                ))}
+              </Box>
             </Grid>
-
-            <Grid item xs={6} lg={3}>
-              {services.map(({ label, path }, index) => (
-                <Box key={index}>
-                  <Link
-                    component={RouterLink}
-                    to={path}
-                    color="inherit"
-                    underline="none"
-                    sx={{ display: "block" }}
-                  >
-                    {label}
-                  </Link>
-                </Box>
-              ))}
-            </Grid>
-
-            <Grid item xs={6} lg={3}>
-              {socials.map(({ label, path }, index) => (
-                <Box key={index}>
-                  <Link
-                    component={RouterLink}
-                    to={path}
-                    color="inherit"
-                    underline="none"
-                    sx={{ display: "block" }}
-                  >
-                    {label}
-                  </Link>
-                </Box>
-              ))}
-            </Grid>
-
             <Grid item xs={12}>
               <Box
                 sx={{

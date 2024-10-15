@@ -101,11 +101,8 @@ const Team = () => {
         <Box my={5}>
           <Grid container spacing={4}>
             {team?.map(({ avatar, fullname, position, message }, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Paper
-                  elevation={3}
-                  sx={{ height: "365px", borderRadius: "12px" }}
-                >
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Paper elevation={3} sx={{ borderRadius: "12px" }}>
                   <Box p={3}>
                     <Box
                       display="flex"
@@ -120,10 +117,12 @@ const Team = () => {
                     </Box>
                     <Box mt={3} textAlign="start">
                       <Box my={1}>
-                        <Typography variant="body1">{fullname}</Typography>
+                        <Typography variant="body1" fontWeight={600}>
+                          {fullname}
+                        </Typography>
                         <Typography variant="body2">{position}</Typography>
                       </Box>
-                      <Typography variant="body2">"{message}"</Typography>
+                      {/* <Typography variant="body2">"{message}"</Typography> */}
                     </Box>
                   </Box>
                 </Paper>

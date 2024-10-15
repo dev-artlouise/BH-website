@@ -41,7 +41,7 @@ const Project = () => {
   };
 
   return (
-    <Box>
+    <Box sx={{ paddingY: "64px" }}>
       {/* Project Content Section */}
       <Box sx={{ paddingY: "64px" }}>
         <Container>

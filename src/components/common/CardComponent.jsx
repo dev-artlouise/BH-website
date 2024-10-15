@@ -33,7 +33,7 @@ const CardComponent = ({ image, title, cardContent, cardActions, onClick }) => {
     right: 0,
     background: "rgba(0, 0, 0, 0.5)", // Semi-transparent background for better readability
     color: "white", // Text color
-    // padding: "14px", // Adjust padding
+    padding: "16px", // Adjust padding
   };
 
   return (
