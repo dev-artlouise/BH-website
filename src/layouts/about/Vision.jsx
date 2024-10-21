@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
 
 import Reveal from "../../components/animations/Reveal";
@@ -20,13 +20,19 @@ const LoadingComponent = () => (
 const Vision = ({ data, isLoading }) => (
   <Box
     sx={{
+      position: "relative",
       display: "flex",
-      flexDirection: "column",
+      alignItems: "center",
       justifyContent: "center",
-      minHeight: "50vh",
+      flexDirection: { xs: "column", md: "row" }, // Responsive flex direction
+      borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
+      boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
+      paddingTop: "64px",
+      paddingBottom: "64px",
+      minHeight: "100vh",
     }}
   >
-    <Box>
+    <Container>
       <Reveal>
         <Typography
           variant="h6"
@@ -55,7 +61,7 @@ const Vision = ({ data, isLoading }) => (
           {/* {data} */}
         </Typography>
       </Reveal>
-    </Box>
+    </Container>
   </Box>
 );
 

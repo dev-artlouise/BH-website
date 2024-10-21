@@ -6,6 +6,8 @@ import { Box } from "@mui/material";
 import bg from "./assets/bg-1.jpg";
 import Hero from "./layouts/sections/Hero";
 
+import patternBg from "./assets/Telegram Desktop/pattern2.png";
+
 import { useViewportScroll, motion, useTransform } from "framer-motion";
 
 const queryClient = new QueryClient();
@@ -15,7 +17,7 @@ function App() {
   const isHomePage = location.pathname === "/";
 
   const fullbackgroundStyle = {
-    // backgroundImage: `url(${bg})`,
+    // backgroundImage: `url(${patternBg})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",

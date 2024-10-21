@@ -48,8 +48,21 @@ const Team = () => {
   // const { isLoading, data } = useTeam();
   // const team = data?.data;
 
+  const containerStyles = {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column", // Responsive flex direction
+    borderRadius: "1.5rem  1.5rem 0 0", // Apply border radius only on the left and right sides
+    boxShadow: "0 -10px 15px -3px rgba(0,0,0,0.3)", // Apply shadow to the top only
+    paddingTop: "64px",
+    paddingBottom: "64px",
+    minHeight: "100vh",
+  };
+
   return (
-    <Box display="flex" flexDirection="column" textAlign="center" my={8}>
+    <Box sx={{ ...containerStyles }}>
       <Typography
         variant="h4"
         fontSize="1rem"

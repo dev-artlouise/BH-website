@@ -5,6 +5,8 @@ import { useAboutUs } from "../../hooks/useAboutPage";
 import SkeletonLoaderComponent from "../../components/common/SkeletonLoaderComponent";
 import Reveal from "../../components/animations/Reveal";
 
+import patternBg from "../../assets/Telegram Desktop/pattern2.png";
+
 const LoadingAboutUs = () => (
   <Box
     sx={{
@@ -31,11 +33,12 @@ const Introduction = () => {
 
   return (
     <Box
-      sx={
-        {
-          // marginBottom: "32px",
-        }
-      }
+      sx={{
+        position: "relative",
+        paddingTop: "64px",
+        paddingBottom: "64px",
+        // marginBottom: "32px",
+      }}
     >
       {/* {isLoading ? (
         <LoadingAboutUs />
@@ -44,25 +47,6 @@ const Introduction = () => {
         
         </>
       )} */}
-      <Reveal>
-        <Typography
-          fontSize={{ xs: "38px", sm: "42px", md: "50px", lg: "60px" }}
-          textAlign={{ xs: "center" }}
-          variant="h3"
-          fontWeight="700"
-          gutterBottom
-        >
-          {/* {title} */}
-          From Ideas to Loved Products
-        </Typography>
-      </Reveal>
-
-      <Reveal>
-        <Typography variant="h6" component="p" textAlign={{ xs: "center" }}>
-          {/* {content} */}
-          We bring your ideas to life and Build products people love
-        </Typography>
-      </Reveal>
     </Box>
   );
 };
