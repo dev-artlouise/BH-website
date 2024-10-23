@@ -50,6 +50,7 @@ const Team = () => {
 
   const containerStyles = {
     position: "relative",
+    background: "#fff",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

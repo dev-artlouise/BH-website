@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { AppBar, Container, Toolbar, Box, Button } from "@mui/material";
 import SideDrawer from "../components/common/SideDrawer";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
 import logo from "../assets/bh-logo.png";
 import logoReverse from "../assets/bh-logo-reverse.png";
@@ -10,6 +10,9 @@ import ActionButtonComponent from "../components/common/ActionButtonComponent";
 
 const AppbarComponent = () => {
   const [scrolling, setScrolling] = useState(false);
+
+  const location = useLocation();
+  const isNotHomeRoute = location.pathname !== "/";
 
   // Detect scrolling
   useEffect(() => {
@@ -27,7 +30,7 @@ const AppbarComponent = () => {
 
   // AppBar styling based on scroll
   const appbarStyles = {
-    backgroundColor: scrolling ? "rgba(0, 0, 0, 0.85)" : "transparent",
+    backgroundColor: "rgba(0, 0, 0, 0.85)",
     transition: "background-color 0.3s ease-in-out",
     boxShadow: scrolling ? "0px 4px 20px rgba(0, 0, 0, 0.2)" : "none",
     height: { xs: 100, md: 135 },
@@ -52,7 +55,7 @@ const AppbarComponent = () => {
     display: "block",
     textTransform: "capitalize",
     fontSize: "18px",
-    color: scrolling ? "white" : "black",
+    color: "white",
   };
 
   const contactButtonStyles = {
@@ -63,7 +66,7 @@ const AppbarComponent = () => {
     padding: ".75rem 2.5rem",
     fontSize: "1.125rem",
     lineHeight: "1.75rem",
-    borderColor: scrolling ? "lightgray" : "black",
+    borderColor: "lightgray",
     backgroundColor: "transparent",
     "&:hover": {
       color: scrolling ? "black" : "white",
@@ -88,7 +91,7 @@ const AppbarComponent = () => {
             >
               <Box
                 component="img"
-                src={scrolling ? logoReverse : logo}
+                src={logoReverse}
                 alt="BH-logo"
                 sx={{ height: 60, marginRight: "1rem", borderRadius: "3px" }}
               />
@@ -127,12 +130,11 @@ const AppbarComponent = () => {
               </Box>
 
               <ActionButtonComponent
-                label={'Contact Us'}
-                path={'/contact-us'}
+                label={"Contact Us"}
+                path={"/contact-us"}
                 size="large"
                 styles={contactButtonStyles}
               />
-
             </Box>
           </Toolbar>
         </Container>

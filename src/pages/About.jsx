@@ -1,5 +1,4 @@
-import { Grid, Container, Box } from "@mui/material";
-import Introduction from "../layouts/about/Introduction";
+import { Box, Container } from "@mui/material";
 import Stats from "../layouts/about/Stats";
 import Mission from "../layouts/about/Mission";
 import Vision from "../layouts/about/Vision";

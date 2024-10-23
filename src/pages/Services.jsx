@@ -7,12 +7,24 @@ import OurServices from "../layouts/services/OurServices";
 import WhatWeDo from "../layouts/services/WhatWeDo";
 import ServicesLayout from "../layouts/home/Services";
 
-import { companies, process } from "../data";
+import { companies, process } from "../data/";
 
 import ActionButtonComponent from "../components/common/ActionButtonComponent";
 import Reveal from "../components/animations/Reveal";
 
+import patternBg from "../assets/Telegram Desktop/pattern1.png";
+
 const Services = () => {
+  const fullbackgroundStyle = {
+    backgroundImage: `url(${patternBg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    position: "sticky",
+    top: 0,
+    minHeight: "40vh",
+  };
+
   const containerStyles = {
     position: "relative",
     display: "flex",
@@ -51,6 +63,8 @@ const Services = () => {
 
   return (
     <>
+      <Box sx={{ ...fullbackgroundStyle }}></Box>
+
       <Box
         sx={{
           position: "relative",

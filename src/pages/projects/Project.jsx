@@ -41,9 +41,9 @@ const Project = () => {
   };
 
   return (
-    <Box sx={{ paddingY: "64px" }}>
+    <>
       {/* Project Content Section */}
-      <Box sx={{ paddingY: "64px" }}>
+      <Box py={20}>
         <Container>
           <Grid
             container
@@ -83,32 +83,20 @@ const Project = () => {
                 />
               </Box>
             </Grid>
-          </Grid>
 
-          {/* Categories and Tech Stack */}
-          <Grid
-            container
-            spacing={2}
-            justifyContent="center"
-            mt={5}
-            paddingLeft={1}
-          >
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12}>
               <Box my={2} paddingTop={1}>
-                <Typography gutterBottom>What We Did</Typography>
+                <Typography variant={"h6"} fontWeight={700} gutterBottom>
+                  What We Did
+                </Typography>
               </Box>
-            </Grid>
 
-            <Grid item xs={12} md={6}>
               <List>
                 {categories.map((category, index) => (
                   <ListItem key={index}>
                     <ListItemText
                       primary={
-                        <Typography
-                          variant="h6"
-                          sx={{ fontWeight: 700, fontSize: "1.2rem" }}
-                        >
+                        <Typography variant="h6" sx={{ fontSize: "1.2rem" }}>
                           {category}
                         </Typography>
                       }
@@ -116,42 +104,35 @@ const Project = () => {
                   </ListItem>
                 ))}
               </List>
-            </Grid>
 
-            <Grid item xs={12} md={6}>
               <Box my={2} paddingTop={1}>
-                <Typography gutterBottom>Tech Stack</Typography>
-              </Box>
-            </Grid>
+                <Typography variant={"h6"} fontWeight={700} gutterBottom>
+                  Tech Stack
+                </Typography>
 
-            <Grid item xs={12} md={6}>
-              <List>
-                {technologies.map((tech, index) => (
-                  <ListItem key={index}>
-                    <ListItemText
-                      primary={
-                        <Typography
-                          variant="h6"
-                          sx={{ fontWeight: 700, fontSize: "1.2rem" }}
-                        >
-                          {tech}
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                ))}
-              </List>
+                <List>
+                  {technologies.map((tech, index) => (
+                    <ListItem key={index}>
+                      <ListItemText
+                        primary={
+                          <Typography variant="h6" sx={{ fontSize: "1.2rem" }}>
+                            {tech}
+                          </Typography>
+                        }
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
             </Grid>
           </Grid>
         </Container>
       </Box>
 
-      {/* Image Slider Section */}
-      <Box sx={{ paddingY: "64px" }}>
+      {/* <Box sx={{ paddingY: "64px" }}>
         <Container>
           <Slider {...sliderSettings}>
-            {/* Uncomment and update this section when images array is available */}
-            {/* {project.images.map((image, index) => (
+            {project.images.map((image, index) => (
               <Box key={index}>
                 <img
                   src={image}
@@ -159,11 +140,11 @@ const Project = () => {
                   style={{ width: "100%", height: "auto" }}
                 />
               </Box>
-            ))} */}
+            ))}
           </Slider>
         </Container>
-      </Box>
-    </Box>
+      </Box> */}
+    </>
   );
 };
 

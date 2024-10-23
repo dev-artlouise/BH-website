@@ -43,14 +43,7 @@ function App() {
         }
       >
         {isHomePage && (
-          <motion.div
-            style={
-              {
-                // y: yOffset, // Apply the parallax effect
-                // zIndex: -1, // Ensure it's behind the Appbar and other content
-              }
-            }
-          >
+          <motion.div>
             {/* You can include the Hero section here */}
             <Hero />
           </motion.div>

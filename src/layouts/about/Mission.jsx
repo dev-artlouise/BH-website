@@ -19,6 +19,8 @@ const LoadingComponent = () => (
 const Mission = ({ data, isLoading }) => (
   <Box
     sx={{
+      marginTop: "-28px",
+      background: "#fff",
       position: "relative",
       display: "flex",
       alignItems: "center",
